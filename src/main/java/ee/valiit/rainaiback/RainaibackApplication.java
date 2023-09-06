@@ -1,4 +1,4 @@
-package com.example.rainaiback;
+package ee.valiit.rainaiback;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
