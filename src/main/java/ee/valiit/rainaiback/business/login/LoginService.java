@@ -11,6 +11,6 @@ public class LoginService {
 
 
     public void login (String username, String password){
-
+        userService.findActiveUserBy(username, password);
     }
 }
