@@ -1,7 +1,6 @@
-package ee.valiit.rainaiback.infrastructure;
+package ee.valiit.rainaiback.infrastructure.error;
 
 import lombok.Data;
-
 @Data
 public class ApiError {
     private String message;

@@ -1,6 +1,7 @@
 package ee.valiit.rainaiback.business;
 
-import ee.valiit.rainaiback.infrastructure.ApiError;
+
+import ee.valiit.rainaiback.infrastructure.error.ApiError;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -20,7 +21,7 @@ public class SignupController {
     @Operation(summary = "Pakettide saamine. Tagastab packageId, packageName ja packagePrice")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "OK"),
-            @ApiResponse(responseCode = "404", description = "Ei leitud ühtegi paketti",
+            @ApiResponse(responseCode = "403", description = "Ei leitud ühtegi paketti",
                     content = @Content(schema = @Schema(implementation = ApiError.class)))
     })
     public List<PackageTypeDto> getPackages(){
