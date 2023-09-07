@@ -1,7 +1,7 @@
 package ee.valiit.rainaiback.domain.user;
 
-import ee.valiit.rainaiback.PackageType;
 import ee.valiit.rainaiback.Role;
+import ee.valiit.rainaiback.domain.packagetype.PackageType;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;

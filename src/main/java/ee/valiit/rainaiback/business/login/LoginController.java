@@ -1,7 +1,6 @@
-package ee.valiit.rainaiback.business;
+package ee.valiit.rainaiback.business.login;
 
 
-import ee.valiit.rainaiback.business.login.LoginService;
 import jakarta.annotation.Resource;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -14,8 +13,7 @@ public class LoginController {
 private LoginService loginService;
 
     @GetMapping("/login")
-
-    public void login (@RequestParam String username, @RequestParam String password){
-        loginService.login(username,password);
+    public LoginResponse login (@RequestParam String username, @RequestParam String password){
+       return loginService.login(username,password);
     }
 }

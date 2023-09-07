@@ -1,5 +1,7 @@
 package ee.valiit.rainaiback.business.login;
 
+import ee.valiit.rainaiback.domain.user.User;
+import ee.valiit.rainaiback.domain.user.UserMapper;
 import ee.valiit.rainaiback.domain.user.UserService;
 import jakarta.annotation.Resource;
 import org.springframework.stereotype.Service;
@@ -8,9 +10,13 @@ import org.springframework.stereotype.Service;
 public class LoginService {
     @Resource
     private UserService userService;
+    @Resource
+    private UserMapper userMapper;
 
 
-    public void login (String username, String password){
-        userService.findActiveUserBy(username, password);
+    public LoginResponse login (String username, String password){
+        User user = userService.findActiveUserBy(username, password);
+        LoginResponse loginResponse = userMapper.toLoginResponse(user);
+        return loginResponse;
     }
 }
