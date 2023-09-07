@@ -5,7 +5,8 @@ import lombok.Getter;
 @Getter
 public enum Error {
     INCORRECT_CREDENTIALS("Vale kasutajanimi või parool", 111),
-    USERNAME_UNAVAILABLE("Kasutajanimi on juba hõivatud", 222);
+    NO_PACKAGE_FOUND("Ei leitud ühtegi paketti", 222),
+    USERNAME_UNAVAILABLE("Kasutajanimi on juba hõivatud", 333);
 
     private final String message;
     private final int errorCode;

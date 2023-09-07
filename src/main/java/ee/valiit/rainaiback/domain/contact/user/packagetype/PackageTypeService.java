@@ -1,5 +1,6 @@
 package ee.valiit.rainaiback.domain.contact.user.packagetype;
 
+import ee.valiit.rainaiback.validation.ValidationService;
 import jakarta.annotation.Resource;
 import org.springframework.stereotype.Service;
 
@@ -10,8 +11,12 @@ public class PackageTypeService {
     @Resource
     private PackageTypeRepository packageTypeRepository;
 
+
     public List<PackageType> getAllPackageTypes() {
-        return packageTypeRepository.findAll();
+
+        List<PackageType> packageTypes = packageTypeRepository.findAll();
+        ValidationService.validateAtLeastOnePackageExists(packageTypes);
+        return packageTypes;
     }
 
     public PackageType findPackageBy(Integer packageTypeId) {
