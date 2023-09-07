@@ -1,4 +1,4 @@
-package ee.valiit.rainaiback.domain.user;
+package ee.valiit.rainaiback.domain.contact.user;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;

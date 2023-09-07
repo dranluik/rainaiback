@@ -1,6 +1,6 @@
 package ee.valiit.rainaiback.validation;
 
-import ee.valiit.rainaiback.domain.user.User;
+import ee.valiit.rainaiback.domain.contact.user.User;
 import ee.valiit.rainaiback.infrastructure.exception.BusinessException;
 
 import java.util.Optional;

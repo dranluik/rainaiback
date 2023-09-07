@@ -1,6 +1,6 @@
-package ee.valiit.rainaiback.business;
+package ee.valiit.rainaiback.business.signup;
 
-import ee.valiit.rainaiback.domain.packagetype.PackageType;
+import ee.valiit.rainaiback.domain.contact.user.packagetype.PackageType;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;

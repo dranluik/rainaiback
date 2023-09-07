@@ -1,8 +1,7 @@
-package ee.valiit.rainaiback.business;
+package ee.valiit.rainaiback.business.signup;
 
 
 import ee.valiit.rainaiback.infrastructure.error.ApiError;
-import ee.valiit.rainaiback.validation.Error;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;

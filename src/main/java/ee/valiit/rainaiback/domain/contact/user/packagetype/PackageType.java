@@ -1,4 +1,4 @@
-package ee.valiit.rainaiback.domain.packagetype;
+package ee.valiit.rainaiback.domain.contact.user.packagetype;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;

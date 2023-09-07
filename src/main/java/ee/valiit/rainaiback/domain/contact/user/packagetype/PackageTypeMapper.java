@@ -1,6 +1,6 @@
-package ee.valiit.rainaiback.domain.packagetype;
+package ee.valiit.rainaiback.domain.contact.user.packagetype;
 
-import ee.valiit.rainaiback.business.PackageTypeDto;
+import ee.valiit.rainaiback.business.signup.PackageTypeDto;
 import org.mapstruct.*;
 
 import java.util.List;

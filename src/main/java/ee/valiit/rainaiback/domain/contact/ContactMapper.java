@@ -1,6 +1,6 @@
 package ee.valiit.rainaiback.domain.contact;
 
-import ee.valiit.rainaiback.business.NewUserDto;
+import ee.valiit.rainaiback.business.signup.NewUserDto;
 import org.mapstruct.*;
 
 @Mapper(unmappedTargetPolicy = ReportingPolicy.IGNORE, componentModel = MappingConstants.ComponentModel.SPRING)

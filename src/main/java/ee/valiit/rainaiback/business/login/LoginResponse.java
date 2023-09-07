@@ -1,6 +1,6 @@
 package ee.valiit.rainaiback.business.login;
 
-import ee.valiit.rainaiback.domain.user.User;
+import ee.valiit.rainaiback.domain.contact.user.User;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

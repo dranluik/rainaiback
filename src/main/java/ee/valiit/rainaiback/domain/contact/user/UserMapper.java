@@ -1,6 +1,6 @@
-package ee.valiit.rainaiback.domain.user;
+package ee.valiit.rainaiback.domain.contact.user;
 
-import ee.valiit.rainaiback.business.NewUserDto;
+import ee.valiit.rainaiback.business.signup.NewUserDto;
 import ee.valiit.rainaiback.business.login.LoginResponse;
 import org.mapstruct.*;
 

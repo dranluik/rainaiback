@@ -1,8 +1,8 @@
 package ee.valiit.rainaiback.business.login;
 
-import ee.valiit.rainaiback.domain.user.User;
-import ee.valiit.rainaiback.domain.user.UserMapper;
-import ee.valiit.rainaiback.domain.user.UserService;
+import ee.valiit.rainaiback.domain.contact.user.User;
+import ee.valiit.rainaiback.domain.contact.user.UserMapper;
+import ee.valiit.rainaiback.domain.contact.user.UserService;
 import jakarta.annotation.Resource;
 import org.springframework.stereotype.Service;
 

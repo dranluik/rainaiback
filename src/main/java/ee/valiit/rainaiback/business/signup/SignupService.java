@@ -1,15 +1,16 @@
-package ee.valiit.rainaiback.business;
+package ee.valiit.rainaiback.business.signup;
 
+import ee.valiit.rainaiback.business.Status;
 import ee.valiit.rainaiback.domain.contact.Contact;
 import ee.valiit.rainaiback.domain.contact.ContactService;
-import ee.valiit.rainaiback.domain.packagetype.PackageType;
-import ee.valiit.rainaiback.domain.packagetype.PackageTypeMapper;
-import ee.valiit.rainaiback.domain.packagetype.PackageTypeService;
-import ee.valiit.rainaiback.domain.user.User;
-import ee.valiit.rainaiback.domain.user.UserMapper;
-import ee.valiit.rainaiback.domain.user.UserService;
-import ee.valiit.rainaiback.domain.user.role.Role;
-import ee.valiit.rainaiback.domain.user.role.RoleService;
+import ee.valiit.rainaiback.domain.contact.user.packagetype.PackageType;
+import ee.valiit.rainaiback.domain.contact.user.packagetype.PackageTypeMapper;
+import ee.valiit.rainaiback.domain.contact.user.packagetype.PackageTypeService;
+import ee.valiit.rainaiback.domain.contact.user.User;
+import ee.valiit.rainaiback.domain.contact.user.UserMapper;
+import ee.valiit.rainaiback.domain.contact.user.UserService;
+import ee.valiit.rainaiback.domain.contact.user.role.Role;
+import ee.valiit.rainaiback.domain.contact.user.role.RoleService;
 import jakarta.annotation.Resource;
 import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;

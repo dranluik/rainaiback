@@ -1,4 +1,4 @@
-package ee.valiit.rainaiback.domain.user;
+package ee.valiit.rainaiback.domain.contact.user;
 
 import ee.valiit.rainaiback.business.Status;
 import ee.valiit.rainaiback.validation.ValidationService;
