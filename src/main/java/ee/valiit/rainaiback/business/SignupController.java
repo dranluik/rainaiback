@@ -2,6 +2,7 @@ package ee.valiit.rainaiback.business;
 
 
 import ee.valiit.rainaiback.infrastructure.error.ApiError;
+import ee.valiit.rainaiback.validation.Error;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -30,8 +31,14 @@ public class SignupController {
     }
 
     @PostMapping("/signup")
-    public void addNewUser(@RequestBody NewUserDto request){
-        signUpService.addNewUser(request);
+    @Operation(summary = "Uue kasutaja ja kontaktinfo lisamine.")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "OK"),
+            @ApiResponse(responseCode = "403", description = "Kasutajanimi on juba hõivatud",
+            content = @Content(schema = @Schema(implementation = ApiError.class)))
+    })
+    public void addNewUserAndContact(@RequestBody NewUserDto request){
+        signUpService.addNewUserAndContact(request);
     }
 
 }

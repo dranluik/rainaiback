@@ -1,4 +1,4 @@
-package ee.valiit.rainaiback.business.login;
+package ee.valiit.rainaiback.business;
 
 import lombok.Getter;
 
