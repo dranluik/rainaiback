@@ -13,4 +13,8 @@ public class PackageTypeService {
     public List<PackageType> getAllPackageTypes() {
         return packageTypeRepository.findAll();
     }
+
+    public PackageType findPackageBy(Integer packageTypeId) {
+        return packageTypeRepository.getReferenceById(packageTypeId);
+    }
 }

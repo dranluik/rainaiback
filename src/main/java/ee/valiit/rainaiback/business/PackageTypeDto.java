@@ -3,19 +3,24 @@ package ee.valiit.rainaiback.business;
 import ee.valiit.rainaiback.domain.packagetype.PackageType;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
-import lombok.Value;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 
 import java.io.Serializable;
 
 /**
  * DTO for {@link PackageType}
  */
-@Value
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class PackageTypeDto implements Serializable {
-    Integer packageId;
+    private Integer packageId;
     @NotNull
     @Size(max = 255)
-    String packageName;
+    private String packageName;
     @NotNull
-    Integer packagePrice;
+    private Integer packagePrice;
 }
