@@ -1,4 +1,4 @@
-package ee.valiit.rainaiback.domain.technology.frontend;
+package ee.valiit.rainaiback.domain.technology;
 
 import ee.valiit.rainaiback.business.status.UserStatus;
 import ee.valiit.rainaiback.validation.ValidationService;

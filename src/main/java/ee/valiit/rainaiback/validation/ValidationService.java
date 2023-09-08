@@ -2,7 +2,7 @@ package ee.valiit.rainaiback.validation;
 
 import ee.valiit.rainaiback.domain.contact.user.User;
 import ee.valiit.rainaiback.domain.contact.user.packagetype.PackageType;
-import ee.valiit.rainaiback.domain.technology.frontend.Technology;
+import ee.valiit.rainaiback.domain.technology.Technology;
 import ee.valiit.rainaiback.infrastructure.exception.BusinessException;
 import ee.valiit.rainaiback.infrastructure.exception.DataNotFoundException;
 

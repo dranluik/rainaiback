@@ -1,5 +1,6 @@
-package ee.valiit.rainaiback.domain.technology.frontend;
+package ee.valiit.rainaiback.business.backend;
 
+import ee.valiit.rainaiback.business.frontend.TechnologyDto;
 import ee.valiit.rainaiback.infrastructure.error.ApiError;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
@@ -13,19 +14,20 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-public class FrontendController {
+public class BackendController {
     @Resource
-    private FrontendService frontendService;
+    private BackendServce backendServce;
 
-    @GetMapping("/frontend")
+    @GetMapping("/backend")
     @Operation(summary = "Tehnoloogia saamine. Tagastab packageTypeId, name ja status")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "OK"),
             @ApiResponse(responseCode = "403", description = "Ei leitud ühtegi tehnoloogiat",
-             content = @Content(schema = @Schema(implementation = ApiError.class)))
+                    content = @Content(schema = @Schema(implementation = ApiError.class)))
     })
     public List<TechnologyDto> findAllActiveTechnologies() {
-    List<TechnologyDto> technologies = frontendService.findAllActiveTechnologies();
-    return technologies;
+        List<TechnologyDto> technologies = backendServce.findAllActiveTechnologies();
+        return technologies;
     }
+
 }

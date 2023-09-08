@@ -1,4 +1,4 @@
-package ee.valiit.rainaiback.domain.technology.frontend;
+package ee.valiit.rainaiback.domain.technology;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;

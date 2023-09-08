@@ -1,9 +1,9 @@
-package ee.valiit.rainaiback.domain.technology.backend;
+package ee.valiit.rainaiback.business.backend;
 
-import ee.valiit.rainaiback.domain.technology.frontend.Technology;
-import ee.valiit.rainaiback.domain.technology.frontend.TechnologyDto;
-import ee.valiit.rainaiback.domain.technology.frontend.TechnologyMapper;
-import ee.valiit.rainaiback.domain.technology.frontend.TechnologyService;
+import ee.valiit.rainaiback.domain.technology.Technology;
+import ee.valiit.rainaiback.business.frontend.TechnologyDto;
+import ee.valiit.rainaiback.domain.technology.TechnologyMapper;
+import ee.valiit.rainaiback.domain.technology.TechnologyService;
 import jakarta.annotation.Resource;
 import org.springframework.stereotype.Service;
 

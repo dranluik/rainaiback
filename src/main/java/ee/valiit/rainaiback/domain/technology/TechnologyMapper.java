@@ -1,5 +1,6 @@
-package ee.valiit.rainaiback.domain.technology.frontend;
+package ee.valiit.rainaiback.domain.technology;
 
+import ee.valiit.rainaiback.business.frontend.TechnologyDto;
 import org.mapstruct.*;
 
 import java.util.List;

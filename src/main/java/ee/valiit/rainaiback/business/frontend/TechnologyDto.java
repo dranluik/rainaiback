@@ -1,5 +1,6 @@
-package ee.valiit.rainaiback.domain.technology.frontend;
+package ee.valiit.rainaiback.business.frontend;
 
+import ee.valiit.rainaiback.domain.technology.Technology;
 import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Data;
