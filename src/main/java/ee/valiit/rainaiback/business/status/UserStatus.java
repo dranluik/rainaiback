@@ -1,15 +1,15 @@
-package ee.valiit.rainaiback.business;
+package ee.valiit.rainaiback.business.status;
 
 import lombok.Getter;
 
 @Getter
-public enum Status {
+public enum UserStatus {
     ACTIVE("A"),
     DELETED("D");
 
     private final String letter;
 
-    Status(String letter) {
+    UserStatus(String letter) {
         this.letter = letter;
     }
 }

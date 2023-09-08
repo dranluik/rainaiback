@@ -1,6 +1,6 @@
 package ee.valiit.rainaiback.domain.contact.user;
 
-import ee.valiit.rainaiback.business.Status;
+import ee.valiit.rainaiback.business.status.UserStatus;
 import ee.valiit.rainaiback.validation.ValidationService;
 import jakarta.annotation.Resource;
 import org.springframework.stereotype.Service;
@@ -15,7 +15,7 @@ public class UserService {
 
 
     public User findActiveUserBy(String username, String password) {
-        Optional<User> optionalUser = userRepository.findUserBy(username, password, Status.ACTIVE.getLetter());
+        Optional<User> optionalUser = userRepository.findUserBy(username, password, UserStatus.ACTIVE.getLetter());
         return ValidationService.getValidUser(optionalUser);
     }
 
