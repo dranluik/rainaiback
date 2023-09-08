@@ -10,11 +10,13 @@ import java.util.List;
 public class TechnologyService {
 
     @Resource
-    private TechnologyRepository technologyRespository;
+    private TechnologyRepository technologyRepository;
 
-    public void findTechnologiesBy() {
-        List<Technology> technologies = technologyRespository.findTechnologiesBy(UserStatus.ACTIVE.getLetter());
-        ;
+    public List<Technology> findTechnologiesBy() {
+        List<Technology> technologies = technologyRepository.findTechnologiesBy(UserStatus.ACTIVE.getLetter(),
+                technologyRepository.getReferenceById(2));
+        return technologies;
+
     }
 
 }

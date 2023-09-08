@@ -10,5 +10,6 @@ public interface TechnologyMapper {
     @Mapping(source = "packageType.id", target = "packageTypeId")
     TechnologyDto toTechnologyDto(Technology technology);
 
-    List<TechnologyDto> toTechnologyDtos(List<TechnologyDto> technologyDtos);
+    List<TechnologyDto> toTechnologyDtos(List<Technology> technologies);
+
 }
