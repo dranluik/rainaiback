@@ -1,6 +1,7 @@
 package ee.valiit.rainaiback.domain.technology.frontend;
 
 import ee.valiit.rainaiback.business.status.UserStatus;
+import ee.valiit.rainaiback.validation.ValidationService;
 import jakarta.annotation.Resource;
 import org.springframework.stereotype.Service;
 
@@ -13,10 +14,9 @@ public class TechnologyService {
     private TechnologyRepository technologyRepository;
 
     public List<Technology> findTechnologiesBy() {
-        List<Technology> technologies = technologyRepository.findTechnologiesBy(UserStatus.ACTIVE.getLetter(),
-                technologyRepository.getReferenceById(2));
+        List<Technology> technologies = technologyRepository.findTechnologiesBy(2, UserStatus.ACTIVE.getLetter());
+        ValidationService.validateAtLeastOneTechnologyExists(technologies);
         return technologies;
-
     }
 
 }

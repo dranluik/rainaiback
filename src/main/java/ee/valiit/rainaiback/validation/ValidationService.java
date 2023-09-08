@@ -2,6 +2,7 @@ package ee.valiit.rainaiback.validation;
 
 import ee.valiit.rainaiback.domain.contact.user.User;
 import ee.valiit.rainaiback.domain.contact.user.packagetype.PackageType;
+import ee.valiit.rainaiback.domain.technology.frontend.Technology;
 import ee.valiit.rainaiback.infrastructure.exception.BusinessException;
 import ee.valiit.rainaiback.infrastructure.exception.DataNotFoundException;
 
@@ -29,6 +30,12 @@ public class ValidationService {
             throw new BusinessException(
                     USERNAME_UNAVAILABLE.getMessage(), USERNAME_UNAVAILABLE.getErrorCode()
             );
+        }
+    }
+
+    public static void validateAtLeastOneTechnologyExists(List<Technology> technologies) {
+        if(technologies.isEmpty()) {
+            throw new DataNotFoundException(NO_TECHNOLOGIES_FOUND.getMessage(), NO_TECHNOLOGIES_FOUND.getErrorCode());
         }
     }
 }
