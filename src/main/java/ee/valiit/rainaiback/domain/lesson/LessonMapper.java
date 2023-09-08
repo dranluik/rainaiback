@@ -1,5 +1,6 @@
 package ee.valiit.rainaiback.domain.lesson;
 
+import ee.valiit.rainaiback.business.lesson.LessonDto;
 import org.mapstruct.*;
 
 import java.util.List;

@@ -3,13 +3,12 @@ package ee.valiit.rainaiback.business.status;
 import lombok.Getter;
 
 @Getter
-public enum LessonStatus {
-    ADD("A"),
-    DELETE("D"),
-    LOCKED("L");
+public enum UserLessonStatus {
+    ENABLE("E"),
+    DISABLE("D");
     private final String letter;
 
-    LessonStatus(String letter) {
+    UserLessonStatus(String letter) {
         this.letter = letter;
     }
 }

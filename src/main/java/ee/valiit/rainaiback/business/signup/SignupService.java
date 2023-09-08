@@ -1,6 +1,6 @@
 package ee.valiit.rainaiback.business.signup;
 
-import ee.valiit.rainaiback.business.status.UserStatus;
+import ee.valiit.rainaiback.business.status.Status;
 import ee.valiit.rainaiback.domain.contact.Contact;
 import ee.valiit.rainaiback.domain.contact.ContactService;
 import ee.valiit.rainaiback.domain.contact.user.packagetype.PackageType;
@@ -66,7 +66,7 @@ public class SignupService {
         User user = userMapper.toNewUserEntity(request);
         user.setRole(role);
         user.setPackageType(packageType);
-        user.setStatus(UserStatus.ACTIVE.getLetter());
+        user.setStatus(Status.ACTIVE.getLetter());
         return user;
     }
 

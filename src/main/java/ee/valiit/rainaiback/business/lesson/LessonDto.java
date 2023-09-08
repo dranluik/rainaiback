@@ -1,5 +1,6 @@
-package ee.valiit.rainaiback.domain.lesson;
+package ee.valiit.rainaiback.business.lesson;
 
+import ee.valiit.rainaiback.domain.lesson.Lesson;
 import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Data;

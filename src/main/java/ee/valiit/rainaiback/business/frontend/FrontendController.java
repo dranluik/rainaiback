@@ -1,6 +1,6 @@
 package ee.valiit.rainaiback.business.frontend;
 
-import ee.valiit.rainaiback.domain.lesson.LessonDto;
+import ee.valiit.rainaiback.business.lesson.LessonDto;
 import ee.valiit.rainaiback.infrastructure.error.ApiError;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;

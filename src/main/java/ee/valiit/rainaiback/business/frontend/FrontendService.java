@@ -1,7 +1,7 @@
 package ee.valiit.rainaiback.business.frontend;
 
 import ee.valiit.rainaiback.domain.lesson.Lesson;
-import ee.valiit.rainaiback.domain.lesson.LessonDto;
+import ee.valiit.rainaiback.business.lesson.LessonDto;
 import ee.valiit.rainaiback.domain.lesson.LessonMapper;
 import ee.valiit.rainaiback.domain.lesson.LessonService;
 import ee.valiit.rainaiback.domain.technology.Technology;
@@ -32,7 +32,7 @@ public class FrontendService {
     }
 
     public List<LessonDto> getLessonName(Integer technologyId) {
-        List<Lesson> lessonNames = lessonService.getLessonNames(technologyId);
+        List<Lesson> lessonNames = lessonService.getLessonNamesByTechnologyId(technologyId);
         return lessonMapper.toLessonDtos(lessonNames);
     }
 }
