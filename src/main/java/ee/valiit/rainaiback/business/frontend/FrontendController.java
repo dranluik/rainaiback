@@ -9,6 +9,7 @@ import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import jakarta.annotation.Resource;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -30,7 +31,13 @@ public class FrontendController {
     return technologies;
     }
 
-    @GetMapping("/frontend")
+    @GetMapping("/lesson-names")
+    @Operation(summary = "Teema nimede saamine. Tagastab packageTypeId, lessonName ja lessonStatus")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "OK"),
+            @ApiResponse(responseCode = "403", description = "Ei leitud ühtegi teema nime",
+                    content = @Content(schema = @Schema(implementation = ApiError.class)))
+    })
     public List<LessonDto> getLessonName(){
         List<LessonDto> lessonNames = frontendService.getLessonName();
         return lessonNames;

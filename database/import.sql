@@ -21,4 +21,5 @@ INSERT INTO public.technology (id, package_type_id, name, status) VALUES (DEFAUL
 INSERT INTO public.technology (id, package_type_id, name, status) VALUES (DEFAULT, 3, 'SQL', 'A');
 INSERT INTO public.technology (id, package_type_id, name, status) VALUES (DEFAULT, 3, 'Java', 'A');
 
-INSERT INTO public.lesson (id, package_type_id, technology_id, name, content, status, sequence) VALUES (DEFAULT, 2, 1, 'Uue projekti loomine', null, 'A', null);
+INSERT INTO public.lesson (id, package_type_id, technology_id, name, content, status, sequence) VALUES (1, 2, 1, 'Uue projekti loomine', null, 'A', null);
+INSERT INTO public.lesson (id, package_type_id, technology_id, name, content, status, sequence) VALUES (2, 3, 2, 'Controller ', null, 'A', null);
