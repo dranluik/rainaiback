@@ -14,4 +14,6 @@ public interface TechnologyRepository extends JpaRepository<Technology, Integer>
 
 
 
+
+
 }

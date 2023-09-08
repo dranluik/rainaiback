@@ -19,4 +19,13 @@ public class TechnologyService {
         return technologies;
     }
 
+        public List<Technology> findBackTechnologiesBy () {
+            List<Technology> backTechnologies = technologyRepository.findTechnologiesBy(3, UserStatus.ACTIVE.getLetter());
+            ValidationService.validateAtLeastOneTechnologyExists(backTechnologies);
+            return backTechnologies;
+
+        }
+
+
+
 }
