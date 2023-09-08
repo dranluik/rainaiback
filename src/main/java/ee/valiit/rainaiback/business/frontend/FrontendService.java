@@ -31,8 +31,8 @@ public class FrontendService {
         return technologyMapper.toTechnologyDtos(technologies);
     }
 
-    public List<LessonDto> getLessonName() {
-        List<Lesson> lessonNames = lessonService.getLessonNames();
+    public List<LessonDto> getLessonName(Integer technologyId) {
+        List<Lesson> lessonNames = lessonService.getLessonNames(technologyId);
         return lessonMapper.toLessonDtos(lessonNames);
     }
 }

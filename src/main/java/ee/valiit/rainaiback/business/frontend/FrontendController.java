@@ -38,8 +38,8 @@ public class FrontendController {
             @ApiResponse(responseCode = "403", description = "Ei leitud ühtegi teema nime",
                     content = @Content(schema = @Schema(implementation = ApiError.class)))
     })
-    public List<LessonDto> getLessonName(){
-        List<LessonDto> lessonNames = frontendService.getLessonName();
+    public List<LessonDto> getLessonName(@RequestParam Integer technologyId){
+        List<LessonDto> lessonNames = frontendService.getLessonName(technologyId);
         return lessonNames;
 
     }

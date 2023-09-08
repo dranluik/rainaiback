@@ -12,8 +12,8 @@ public class LessonService {
 
     @Resource
     private LessonRepository lessonRepository;
-    public List<Lesson> getLessonNames() {
-        List<Lesson> lessonNames = lessonRepository.findLessonsBy(2, LessonStatus.ADD.getLetter());
+    public List<Lesson> getLessonNames(Integer technologyId) {
+        List<Lesson> lessonNames = lessonRepository.findLessonsBy(technologyId,2, LessonStatus.ADD.getLetter());
         ValidationService.validateAtLeastOneLessonNameExits(lessonNames);
         return lessonNames;
     }
