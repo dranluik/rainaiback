@@ -45,7 +45,7 @@ public class LessonsService {
 
     public List<UserLessonLessonNameDto> findMyLessons(Integer userId) {
 
-        List<UserLesson> userLessons = userLessonService.findUserLessonsBy(userId);
+        List<UserLesson> userLessons = userLessonService.findUserLessonsAndValidateBy(userId);
         return userLessonMapper.toUserLessonLessonNameDtos(userLessons);
 
 

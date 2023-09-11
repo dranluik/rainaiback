@@ -15,7 +15,12 @@ public class UserLessonService {
 
     public List<UserLesson> findUserLessonsBy(Integer userId) {
         List<UserLesson> userLessons = userLessonRepository.findAllUserLessonsBy(userId, Status.ACTIVE.getLetter());
-//        ValidationService.validateAtLeastOneUserLessonExits(userLessons);
+        return userLessons;
+
+    }
+    public List<UserLesson> findUserLessonsAndValidateBy(Integer userId) {
+        List<UserLesson> userLessons = userLessonRepository.findAllUserLessonsBy(userId, Status.ACTIVE.getLetter());
+        ValidationService.validateAtLeastOneUserLessonExits(userLessons);
         return userLessons;
 
     }
