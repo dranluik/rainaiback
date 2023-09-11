@@ -10,6 +10,7 @@ public interface UserLessonMapper {
 
 
     @Mapping(source = "lesson.name", target = "lessonName")
+    @Mapping(source = "lesson.id", target = "lessonId")
     UserLessonLessonNameDto toUserLessonLessonNameDto(UserLesson userLesson);
 
     List<UserLessonLessonNameDto> toUserLessonLessonNameDtos(List<UserLesson> userLessons);

@@ -56,6 +56,7 @@ public class LessonsService {
         for (Lesson lesson : lessons) {
             LessonDto lessonDto = new LessonDto();
             lessonDto.setLessonName(lesson.getName());
+            lessonDto.setLessonId(lesson.getId());
             lessonDto.setIsSelected(false);
 
             for (UserLesson userLesson : userLessons) {

@@ -15,4 +15,5 @@ import java.io.Serializable;
 @NoArgsConstructor
 public class UserLessonLessonNameDto implements Serializable {
     private String lessonName;
+    private Integer lessonId;
 }

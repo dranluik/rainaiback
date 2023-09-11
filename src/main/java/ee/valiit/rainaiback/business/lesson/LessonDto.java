@@ -21,4 +21,5 @@ public class LessonDto implements Serializable {
     private String lessonName;
     @NotNull
     private Boolean isSelected;
+    private Integer lessonId;
 }
