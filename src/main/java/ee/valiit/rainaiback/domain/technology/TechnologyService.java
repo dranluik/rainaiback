@@ -13,8 +13,8 @@ public class TechnologyService {
     @Resource
     private TechnologyRepository technologyRepository;
 
-    public List<Technology> findTechnologiesBy() {
-        List<Technology> technologies = technologyRepository.findTechnologiesBy(2, Status.ACTIVE.getLetter());
+    public List<Technology> findTechnologiesBy(Integer packageTypeId) {
+        List<Technology> technologies = technologyRepository.findTechnologiesBy(packageTypeId, Status.ACTIVE.getLetter());
         ValidationService.validateAtLeastOneTechnologyExists(technologies);
         return technologies;
     }

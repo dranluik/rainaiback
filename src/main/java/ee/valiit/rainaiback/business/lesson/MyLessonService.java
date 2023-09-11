@@ -15,11 +15,8 @@ public class MyLessonService {
     @Resource
     private UserLessonMapper userLessonMapper;
 
-    public List<UserLessonLessonNameDto> findUserLessons(Integer userId) {
-        List<UserLesson> userChosenLessons = userLessonService.findUserChosenLessons(userId);
-        return userLessonMapper.toUserLessonLessonNameDtos(userChosenLessons);
 
 
 
     }
-}
+

@@ -1,6 +1,7 @@
 package ee.valiit.rainaiback.business.lesson;
 
 import ee.valiit.rainaiback.domain.lesson.Lesson;
+import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -15,8 +16,9 @@ import java.io.Serializable;
 @AllArgsConstructor
 @NoArgsConstructor
 public class LessonDto implements Serializable {
-    private Integer packageTypeId;
+
     @Size(max = 255)
     private String lessonName;
-    private String lessonStatus;
+    @NotNull
+    private Boolean isSelected;
 }

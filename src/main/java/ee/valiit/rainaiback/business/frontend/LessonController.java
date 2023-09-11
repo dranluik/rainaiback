@@ -15,32 +15,32 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-public class FrontendController {
+public class LessonController {
     @Resource
-    private FrontendService frontendService;
+    private LessonsService lessonsService;
 
-    @GetMapping("/frontend")
+    @GetMapping("/lesson/technology")
     @Operation(summary = "Tehnoloogia saamine. Tagastab packageTypeId, name ja status")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "OK"),
             @ApiResponse(responseCode = "403", description = "Ei leitud ühtegi tehnoloogiat",
              content = @Content(schema = @Schema(implementation = ApiError.class)))
     })
-    public List<TechnologyDto> findAllActiveTechnologies() {
-    List<TechnologyDto> technologies = frontendService.findAllActiveTechnologies();
+    public List<TechnologyDto> findAllActiveTechnologies(@RequestParam Integer packageTypeId) {
+    List<TechnologyDto> technologies = lessonsService.findAllActiveTechnologies(packageTypeId);
     return technologies;
     }
 
-    @GetMapping("/lesson-names")
+    @GetMapping("/lesson/user")
     @Operation(summary = "Teema nimede saamine. Tagastab packageTypeId, lessonName ja lessonStatus")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "OK"),
             @ApiResponse(responseCode = "403", description = "Ei leitud ühtegi teema nime",
                     content = @Content(schema = @Schema(implementation = ApiError.class)))
     })
-    public List<LessonDto> getLessonName(@RequestParam Integer technologyId){
-        List<LessonDto> lessonNames = frontendService.getLessonName(technologyId);
-        return lessonNames;
+    public List<LessonDto> getLessons(@RequestParam Integer userId, @RequestParam Integer packageTypeId, @RequestParam Integer technologyId){
+        List<LessonDto> lessons = lessonsService.getLessons(userId, packageTypeId, technologyId);
+        return lessons;
 
     }
 }

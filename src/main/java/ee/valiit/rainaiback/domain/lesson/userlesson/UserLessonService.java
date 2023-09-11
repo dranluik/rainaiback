@@ -12,8 +12,12 @@ public class UserLessonService {
     @Resource
     private UserLessonRepository userLessonRepository;
 
-    public List<UserLesson> findUserChosenLessons(Integer userId) {
-        return userLessonRepository.findAllUserLessonsBy(userId, Status.ACTIVE.getLetter(), UserLessonStatus.DISABLE.getLetter());
+    public List<UserLesson> findUserLessonsBy(Integer userId) {
+        List<UserLesson> userLessonsBy = userLessonRepository.findAllUserLessonsBy(userId, Status.ACTIVE.getLetter());
+        return userLessonsBy;
 
     }
+
+
+
 }
