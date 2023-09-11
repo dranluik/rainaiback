@@ -1,5 +1,6 @@
 package ee.valiit.rainaiback.domain.lesson.userlesson;
 
+import ee.valiit.rainaiback.business.lesson.UserLessonLessonNameDto;
 import ee.valiit.rainaiback.business.status.Status;
 import ee.valiit.rainaiback.business.status.UserLessonStatus;
 import ee.valiit.rainaiback.validation.ValidationService;
@@ -26,5 +27,7 @@ public class UserLessonService {
     }
 
 
+    public void saveLesson(UserLessonLessonNameDto request) {
 
+    }
 }

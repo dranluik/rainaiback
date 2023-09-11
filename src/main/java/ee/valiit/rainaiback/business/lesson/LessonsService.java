@@ -69,5 +69,12 @@ public class LessonsService {
         }
         return lessonDtos;
     }
+
+//    public Lesson addUserLesson(UserLessonLessonNameDto request) {
+//        Lesson lesson = createLesson(request);
+//        userLessonService.saveLesson(lesson);
+//        return lesson;
+//
+//    }
 }
 
