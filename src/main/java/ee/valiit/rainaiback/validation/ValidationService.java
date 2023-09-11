@@ -3,6 +3,7 @@ package ee.valiit.rainaiback.validation;
 import ee.valiit.rainaiback.domain.contact.user.User;
 import ee.valiit.rainaiback.domain.contact.user.packagetype.PackageType;
 import ee.valiit.rainaiback.domain.lesson.Lesson;
+import ee.valiit.rainaiback.domain.lesson.userlesson.UserLesson;
 import ee.valiit.rainaiback.domain.technology.Technology;
 import ee.valiit.rainaiback.infrastructure.exception.BusinessException;
 import ee.valiit.rainaiback.infrastructure.exception.DataNotFoundException;
@@ -44,6 +45,12 @@ public class ValidationService {
     public static void validateAtLeastOneLessonNameExits(List<Lesson> lessonNames) {
         if (lessonNames.isEmpty()){
             throw new DataNotFoundException(NO_LESSON_NAMES_FOUND.getMessage(), NO_LESSON_NAMES_FOUND.getErrorCode());
+        }
+    }
+
+    public static void validateAtLeastOneUserLessonExits(List<UserLesson> userLessons) {
+        if(userLessons.isEmpty()){
+            throw new DataNotFoundException(NO_USER_LESSONS_FOUND.getMessage(), NO_USER_LESSONS_FOUND.getErrorCode());
         }
     }
 }

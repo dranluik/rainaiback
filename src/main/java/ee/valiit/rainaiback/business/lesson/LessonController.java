@@ -31,7 +31,7 @@ public class LessonController {
     }
 
     @GetMapping("/lesson/user")
-    @Operation(summary = "Teema nimede saamine. Tagastab packageTypeId, lessonName ja lessonStatus")
+    @Operation(summary = "Teema nimede saamine. Tagastab lessonName ja isSelected")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "OK"),
             @ApiResponse(responseCode = "403", description = "Ei leitud ühtegi teema nime",
@@ -43,7 +43,13 @@ public class LessonController {
 
     }
     @GetMapping("/lesson/mylessons")
-    public void findMyLessons(@RequestParam Integer userId){
-        lessonsService.findMyLessons(userId);
+    @Operation(summary = "Minu teema nimede saamine. Tagastad lessonName")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "OK"),
+            @ApiResponse(responseCode = "403", description = "Kasutaja pole ühtegi teemat oma teemaks veel valinud",
+            content = @Content(schema = @Schema(implementation = ApiError.class)))
+    })
+    public List<UserLessonLessonNameDto> findMyLessons(@RequestParam Integer userId){
+        return lessonsService.findMyLessons(userId);
     }
 }

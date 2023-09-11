@@ -1,9 +1,6 @@
 package ee.valiit.rainaiback.business.lesson;
 
-import ee.valiit.rainaiback.business.lesson.TechnologyDto;
 import ee.valiit.rainaiback.domain.lesson.Lesson;
-import ee.valiit.rainaiback.business.lesson.LessonDto;
-import ee.valiit.rainaiback.domain.lesson.LessonMapper;
 import ee.valiit.rainaiback.domain.lesson.LessonService;
 import ee.valiit.rainaiback.domain.lesson.userlesson.UserLesson;
 import ee.valiit.rainaiback.domain.lesson.userlesson.UserLessonMapper;
@@ -46,9 +43,10 @@ public class LessonsService {
     }
 
 
-    public void findMyLessons(Integer userId) {
+    public List<UserLessonLessonNameDto> findMyLessons(Integer userId) {
 
         List<UserLesson> userLessons = userLessonService.findUserLessonsBy(userId);
+        return userLessonMapper.toUserLessonLessonNameDtos(userLessons);
 
 
     }

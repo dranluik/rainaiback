@@ -2,6 +2,7 @@ package ee.valiit.rainaiback.domain.lesson.userlesson;
 
 import ee.valiit.rainaiback.business.status.Status;
 import ee.valiit.rainaiback.business.status.UserLessonStatus;
+import ee.valiit.rainaiback.validation.ValidationService;
 import jakarta.annotation.Resource;
 import org.springframework.stereotype.Service;
 
@@ -13,8 +14,9 @@ public class UserLessonService {
     private UserLessonRepository userLessonRepository;
 
     public List<UserLesson> findUserLessonsBy(Integer userId) {
-        List<UserLesson> userLessonsBy = userLessonRepository.findAllUserLessonsBy(userId, Status.ACTIVE.getLetter());
-        return userLessonsBy;
+        List<UserLesson> userLessons = userLessonRepository.findAllUserLessonsBy(userId, Status.ACTIVE.getLetter());
+        ValidationService.validateAtLeastOneUserLessonExits(userLessons);
+        return userLessons;
 
     }
 
