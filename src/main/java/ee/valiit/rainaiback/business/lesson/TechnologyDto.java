@@ -1,4 +1,4 @@
-package ee.valiit.rainaiback.business.frontend;
+package ee.valiit.rainaiback.business.lesson;
 
 import ee.valiit.rainaiback.domain.technology.Technology;
 import jakarta.validation.constraints.Size;
@@ -15,7 +15,7 @@ import java.io.Serializable;
 @AllArgsConstructor
 @NoArgsConstructor
 public class TechnologyDto implements Serializable {
-    private Integer packageTypeId;
+    private Integer technologyId;
     @Size(max = 255)
     private String name;
     private String status;

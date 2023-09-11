@@ -1,6 +1,5 @@
-package ee.valiit.rainaiback.business.frontend;
+package ee.valiit.rainaiback.business.lesson;
 
-import ee.valiit.rainaiback.business.lesson.LessonDto;
 import ee.valiit.rainaiback.infrastructure.error.ApiError;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
@@ -42,5 +41,9 @@ public class LessonController {
         List<LessonDto> lessons = lessonsService.getLessons(userId, packageTypeId, technologyId);
         return lessons;
 
+    }
+    @GetMapping("/lesson/mylessons")
+    public void findMyLessons(@RequestParam Integer userId){
+        lessonsService.findMyLessons(userId);
     }
 }
