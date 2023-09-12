@@ -51,8 +51,8 @@ public class LessonController {
         return lessonsService.findMyLessons(userId);
     }
 
-//    @PostMapping("/lesson/mylessons")
-//    public void addUserLesson(@RequestBody UserLessonLessonNameDto request){
-//        lessonsService.addUserLesson(request);
-//    }
+    @PostMapping("/lesson/mylessons")
+    public void addNewUserLesson(@RequestBody UserLessonLessonNameDto request){
+        lessonsService.addNewUserLesson(request);
+    }
 }

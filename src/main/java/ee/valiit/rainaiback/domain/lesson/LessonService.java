@@ -19,4 +19,7 @@ public class LessonService {
     }
 
 
+    public Lesson getLessonBy(String lessonName) {
+        return lessonRepository.findLessonBy(lessonName);
+    }
 }
