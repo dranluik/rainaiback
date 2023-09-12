@@ -1,8 +1,6 @@
 package ee.valiit.rainaiback.domain.lesson.userlesson;
 
-import ee.valiit.rainaiback.business.lesson.UserLessonLessonNameDto;
 import ee.valiit.rainaiback.business.status.Status;
-import ee.valiit.rainaiback.business.status.UserLessonStatus;
 import ee.valiit.rainaiback.validation.ValidationService;
 import jakarta.annotation.Resource;
 import org.springframework.stereotype.Service;
@@ -13,6 +11,9 @@ import java.util.List;
 public class UserLessonService {
     @Resource
     private UserLessonRepository userLessonRepository;
+
+    @Resource
+    private ValidationService validationService;
 
     public List<UserLesson> findUserLessonsBy(Integer userId) {
         List<UserLesson> userLessons = userLessonRepository.findAllUserLessonsBy(userId, Status.ACTIVE.getLetter());
@@ -26,8 +27,8 @@ public class UserLessonService {
 
     }
 
-
-    public void saveLesson(UserLessonLessonNameDto request) {
-
+    public void saveLesson(UserLesson userLesson) {
+        userLessonRepository.save(userLesson);
     }
+
 }

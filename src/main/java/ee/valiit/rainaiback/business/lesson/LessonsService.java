@@ -1,14 +1,18 @@
 package ee.valiit.rainaiback.business.lesson;
 
+import ee.valiit.rainaiback.business.status.UserLessonStatus;
+import ee.valiit.rainaiback.domain.contact.user.User;
 import ee.valiit.rainaiback.domain.contact.user.UserService;
 import ee.valiit.rainaiback.domain.lesson.Lesson;
 import ee.valiit.rainaiback.domain.lesson.LessonService;
 import ee.valiit.rainaiback.domain.lesson.userlesson.UserLesson;
+import ee.valiit.rainaiback.domain.lesson.userlesson.UserLessonDto;
 import ee.valiit.rainaiback.domain.lesson.userlesson.UserLessonMapper;
 import ee.valiit.rainaiback.domain.lesson.userlesson.UserLessonService;
 import ee.valiit.rainaiback.domain.technology.Technology;
 import ee.valiit.rainaiback.domain.technology.TechnologyMapper;
 import ee.valiit.rainaiback.domain.technology.TechnologyService;
+import ee.valiit.rainaiback.validation.ValidationService;
 import jakarta.annotation.Resource;
 import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
@@ -76,12 +80,26 @@ public class LessonsService {
     }
 
     @Transactional
-    public Lesson addNewUserLesson(UserLessonLessonNameDto request) {
+    public UserLesson addNewUserLesson(UserLessonDto request) {
+        UserLesson userLesson = createUserLesson(request);
+        saveUserLesson(userLesson);
+        return userLesson;
+
+    }
+
+    private void saveUserLesson(UserLesson userLesson) {
+        userLessonService.saveLesson(userLesson);
+    }
+
+    private UserLesson createUserLesson(UserLessonDto request) {
         Lesson lesson = lessonService.getLessonBy(request.getLessonName());
-//        userService.findUserBy(request.)
-
-        return lesson;
-
+        Integer lessonId = lesson.getId();
+        User user = userService.findUserBy(request.getUserId());
+        UserLesson userLesson = userLessonMapper.toNewUserLessonEntity(request);
+        userLesson.setUser(user);
+        userLesson.setLesson(lesson);
+        userLesson.setStatus(UserLessonStatus.UNREAD.getLetter());
+        return userLesson;
     }
 
 }

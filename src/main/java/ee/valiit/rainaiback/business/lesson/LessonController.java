@@ -1,5 +1,6 @@
 package ee.valiit.rainaiback.business.lesson;
 
+import ee.valiit.rainaiback.domain.lesson.userlesson.UserLessonDto;
 import ee.valiit.rainaiback.infrastructure.error.ApiError;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
@@ -52,7 +53,7 @@ public class LessonController {
     }
 
     @PostMapping("/lesson/mylessons")
-    public void addNewUserLesson(@RequestBody UserLessonLessonNameDto request){
+    public void addNewUserLesson(@RequestBody UserLessonDto request){
         lessonsService.addNewUserLesson(request);
     }
 }

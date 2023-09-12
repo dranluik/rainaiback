@@ -48,9 +48,6 @@ public class SignupService {
         User user = createAndSaveUser(request);
         createAndSaveContact(request, user);
 
-
-
-
     }
 
     private User createAndSaveUser(NewUserDto request) {

@@ -15,7 +15,7 @@ public class UserService {
 
 
     public User findActiveUserBy(String username, String password) {
-        Optional<User> optionalUser = userRepository.findUserBy(username, password, Status.ACTIVE.getLetter());
+        Optional<User> optionalUser = userRepository.findActiveUserBy(username, password, Status.ACTIVE.getLetter());
         return ValidationService.getValidUser(optionalUser);
     }
 
@@ -27,5 +27,9 @@ public class UserService {
 
     public void saveUser(User user) {
         userRepository.save(user);
+    }
+
+    public User findUserBy(Integer userId) {
+        return userRepository.findUserBy(userId);
     }
 }

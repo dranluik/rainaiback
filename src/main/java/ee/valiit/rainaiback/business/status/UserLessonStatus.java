@@ -4,8 +4,8 @@ import lombok.Getter;
 
 @Getter
 public enum UserLessonStatus {
-    ENABLE("E"),
-    DISABLE("D");
+    READ("R"),
+    UNREAD("U");
     private final String letter;
 
     UserLessonStatus(String letter) {

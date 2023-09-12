@@ -15,4 +15,6 @@ public interface UserLessonMapper {
 
     List<UserLessonLessonNameDto> toUserLessonLessonNameDtos(List<UserLesson> userLessons);
 
+    @Mapping(source = "lessonName", target = "lesson.name")
+    UserLesson toNewUserLessonEntity(UserLessonDto userLessonDto);
 }
