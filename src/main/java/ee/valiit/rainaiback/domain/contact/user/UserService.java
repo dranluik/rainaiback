@@ -32,4 +32,6 @@ public class UserService {
     public User findUserBy(Integer userId) {
         return userRepository.findUserBy(userId);
     }
+
+
 }

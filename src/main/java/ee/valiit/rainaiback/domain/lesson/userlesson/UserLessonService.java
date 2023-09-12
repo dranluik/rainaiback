@@ -12,8 +12,6 @@ public class UserLessonService {
     @Resource
     private UserLessonRepository userLessonRepository;
 
-    @Resource
-    private ValidationService validationService;
 
     public List<UserLesson> findUserLessonsBy(Integer userId) {
         List<UserLesson> userLessons = userLessonRepository.findAllUserLessonsBy(userId, Status.ACTIVE.getLetter());
@@ -31,4 +29,9 @@ public class UserLessonService {
         userLessonRepository.save(userLesson);
     }
 
+    public void controlLessonUserExists(Integer lessonId, Integer userId) {
+        boolean lessonUserExists = userLessonRepository.userLessonExistsBy(lessonId, userId);
+        ValidationService.validateUserLessonIsAvailable(lessonUserExists);
+
+    }
 }

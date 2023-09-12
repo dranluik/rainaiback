@@ -9,7 +9,9 @@ public enum Error {
     USERNAME_UNAVAILABLE("Kasutajanimi on juba hõivatud", 333),
     NO_TECHNOLOGIES_FOUND("Ei leitud ühtegi tehnoloogiat", 444),
     NO_LESSON_NAMES_FOUND("Ei leitud ühtegi teema nime", 555),
-    NO_USER_LESSONS_FOUND("Ei leitud ühtegi kasutaja teemat", 666);
+    NO_USER_LESSONS_FOUND("Ei leitud ühtegi kasutaja teemat", 666),
+    USER_LESSON_UNAVAILABLE("Kasutajal on see teema juba lisatud", 777);
+
 
     private final String message;
     private final int errorCode;

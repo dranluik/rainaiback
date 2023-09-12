@@ -53,6 +53,12 @@ public class LessonController {
     }
 
     @PostMapping("/lesson/mylessons")
+    @Operation(summary = "Teema lisamine kasutaja teemade hulka.")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "OK"),
+            @ApiResponse(responseCode = "403", description = "Kasutajal on see teema juba lisatud",
+                    content = @Content(schema = @Schema(implementation = ApiError.class)))
+    })
     public void addNewUserLesson(@RequestBody UserLessonDto request){
         lessonsService.addNewUserLesson(request);
     }

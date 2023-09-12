@@ -95,11 +95,17 @@ public class LessonsService {
         Lesson lesson = lessonService.getLessonBy(request.getLessonName());
         Integer lessonId = lesson.getId();
         User user = userService.findUserBy(request.getUserId());
+        controlLessonUserExists(request, lessonId);
+
         UserLesson userLesson = userLessonMapper.toNewUserLessonEntity(request);
         userLesson.setUser(user);
         userLesson.setLesson(lesson);
         userLesson.setStatus(UserLessonStatus.UNREAD.getLetter());
         return userLesson;
+    }
+
+    private void controlLessonUserExists(UserLessonDto request, Integer lessonId) {
+        userLessonService.controlLessonUserExists(lessonId, request.getUserId());
     }
 
 }

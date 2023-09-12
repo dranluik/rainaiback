@@ -53,4 +53,10 @@ public class ValidationService {
             throw new DataNotFoundException(NO_USER_LESSONS_FOUND.getMessage(), NO_USER_LESSONS_FOUND.getErrorCode());
         }
     }
+
+    public static void validateUserLessonIsAvailable(boolean lessonUserExists) {
+        if (lessonUserExists){
+            throw new BusinessException(USER_LESSON_UNAVAILABLE.getMessage(), USER_LESSON_UNAVAILABLE.getErrorCode());
+        }
+    }
 }
