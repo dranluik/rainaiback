@@ -41,7 +41,7 @@ public class LessonController {
         return lessons;
 
     }
-    @GetMapping("/lesson/mylessons")
+    @GetMapping("/lesson/myLessons")
     @Operation(summary = "Minu teema nimede saamine. Tagastad lessonName")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "OK"),
@@ -52,7 +52,7 @@ public class LessonController {
         return lessonsService.findMyLessons(userId);
     }
 
-    @PostMapping("/lesson/mylessons")
+    @PostMapping("/lesson/myLessons")
     @Operation(summary = "Teema lisamine kasutaja teemade hulka.")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "OK"),
