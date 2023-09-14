@@ -80,33 +80,18 @@ public class LessonsService {
     }
 
     @Transactional
-    public UserLesson addNewUserLesson(UserLessonDto request) {
+    public void addNewUserLesson(UserLessonDto request) {
         UserLesson userLesson = createUserLesson(request);
-        saveUserLesson(userLesson);
-        return userLesson;
-
-    }
-
-    private void saveUserLesson(UserLesson userLesson) {
         userLessonService.saveLesson(userLesson);
     }
 
     private UserLesson createUserLesson(UserLessonDto request) {
-        Lesson lesson = lessonService.getLessonBy(request.getLessonName());
-        Integer lessonId = lesson.getId();
+        Lesson lesson = lessonService.getLessonBy(request.getLessonId());
         User user = userService.findUserBy(request.getUserId());
-        controlLessonUserExists(request, lessonId);
-
-        UserLesson userLesson = userLessonMapper.toNewUserLessonEntity(request);
-        userLesson.setUser(user);
-        userLesson.setLesson(lesson);
-        userLesson.setStatus(UserLessonStatus.UNREAD.getLetter());
-        return userLesson;
+        return new UserLesson(user, lesson);
     }
 
-    private void controlLessonUserExists(UserLessonDto request, Integer lessonId) {
-        userLessonService.controlLessonUserExists(lessonId, request.getUserId());
-    }
+
 
 }
 

@@ -1,5 +1,6 @@
 package ee.valiit.rainaiback.domain.lesson.userlesson;
 
+import ee.valiit.rainaiback.business.status.UserLessonStatus;
 import ee.valiit.rainaiback.domain.contact.user.User;
 import ee.valiit.rainaiback.domain.lesson.Lesson;
 import jakarta.persistence.*;
@@ -31,4 +32,12 @@ public class UserLesson {
     @Column(name = "status", nullable = false, length = Integer.MAX_VALUE)
     private String status;
 
+    public UserLesson() {
+    }
+
+    public UserLesson(User user, Lesson lesson) {
+        this.user = user;
+        this.lesson = lesson;
+        this.status = UserLessonStatus.UNREAD.getLetter();
+    }
 }

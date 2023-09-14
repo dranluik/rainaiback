@@ -29,9 +29,4 @@ public class UserLessonService {
         userLessonRepository.save(userLesson);
     }
 
-    public void controlLessonUserExists(Integer lessonId, Integer userId) {
-        boolean lessonUserExists = userLessonRepository.userLessonExistsBy(lessonId, userId);
-        ValidationService.validateUserLessonIsAvailable(lessonUserExists);
-
-    }
 }

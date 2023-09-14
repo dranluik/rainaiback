@@ -19,7 +19,9 @@ public class LessonService {
     }
 
 
-    public Lesson getLessonBy(String lessonName) {
-        return lessonRepository.findLessonBy(lessonName);
+    public Lesson getLessonBy(Integer lessonId) {
+        return lessonRepository.getReferenceById(lessonId);
     }
+
+
 }
