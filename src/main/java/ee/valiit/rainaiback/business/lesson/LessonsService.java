@@ -12,7 +12,6 @@ import ee.valiit.rainaiback.domain.lesson.userlesson.UserLessonService;
 import ee.valiit.rainaiback.domain.technology.Technology;
 import ee.valiit.rainaiback.domain.technology.TechnologyMapper;
 import ee.valiit.rainaiback.domain.technology.TechnologyService;
-import ee.valiit.rainaiback.validation.ValidationService;
 import jakarta.annotation.Resource;
 import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
@@ -38,6 +37,9 @@ public class LessonsService {
 
     @Resource
     private UserService userService;
+    @Resource
+    private NewLessonService newLessonService;
+
 
     public List<TechnologyDto> findAllActiveTechnologies(Integer packageTypeId) {
         List<Technology> technologies = technologyService.findTechnologiesBy(packageTypeId);
@@ -106,6 +108,16 @@ public class LessonsService {
 
     private void controlLessonUserExists(UserLessonDto request, Integer lessonId) {
         userLessonService.controlLessonUserExists(lessonId, request.getUserId());
+    }
+    @Transactional
+    public void addNewLesson(AddLessonDto request) {
+        Lesson lesson = createAndSaveLesson(request);
+        addNewLesson(request, lesson);
+    }
+    private void createAndSaveLesson(AddLessonDto request){
+        Lesson lesson = addNewLesson(request);
+        lessonService.saveLesson(lesson);
+        return lesson;
     }
 
 }
