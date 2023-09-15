@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 import java.io.Serializable;
 
 /**
- * DTO for {@link ee.valiit.rainaiback.domain.lesson.Lesson}
+ * DTO for {@link ee.valiit.rainaiback.domain.lesson.Lesson}, {@link ee.valiit.rainaiback.domain.technology.Technology}
  */
 @Data
 @AllArgsConstructor
@@ -19,5 +19,5 @@ public class AddLessonDto implements Serializable {
     private String technologyName;
     @NotNull
     @Size(max = 255)
-    private String name;
+    private String lessonName;
 }

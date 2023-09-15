@@ -27,5 +27,12 @@ public class TechnologyService {
         }
 
 
+    public void confirmNameAvailability(String technologyName) {
+        boolean technologyNameExists = technologyRepository.existsByName(technologyName);
+        ValidationService.validateTechnologyNameIsAvailable(technologyNameExists);
+    }
 
+    public void saveTechnology(Technology technology) {
+        technologyRepository.save(technology);
+    }
 }

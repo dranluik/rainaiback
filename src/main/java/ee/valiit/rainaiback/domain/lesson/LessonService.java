@@ -21,8 +21,14 @@ public class LessonService {
 
     public Lesson getLessonBy(Integer lessonId) {
         return lessonRepository.getReferenceById(lessonId);
-
-
     }
 
+    public void saveLesson(Lesson lesson) {
+        lessonRepository.save(lesson);
+    }
+
+    public void confirmNameAvailability(String lessonName) {
+        boolean lessonNameExists = lessonRepository.lessonNameExists(lessonName);
+        ValidationService.validateLessonNameIsAvailable(lessonNameExists);
+    }
 }
