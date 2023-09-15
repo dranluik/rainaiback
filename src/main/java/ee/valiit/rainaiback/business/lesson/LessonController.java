@@ -68,15 +68,16 @@ public class LessonController {
         lessonsService.deleteUserLesson(userId,lessonId);
     }
 
-    @PostMapping ("/lesson/mylessons")
+    @PostMapping ("/mylessons")
     @Operation(summary = "Uue teema lisamine.")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "OK"),
             @ApiResponse(responseCode = "403", description = "Teema juba olemas",
                     content = @Content(schema = @Schema(implementation = ApiError.class)))
     })
-    public void addNewLesson(@RequestBody AddLessonDto request){
-        lessonsService.addNewLesson(request);
+    public AddLessonResponse addNewLesson(@RequestBody AddLessonDto request){
+
+        return lessonsService.addNewLessonAndReturnId(request);
     }
 
 }

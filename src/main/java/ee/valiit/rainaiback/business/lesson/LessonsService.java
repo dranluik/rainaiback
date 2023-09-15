@@ -1,7 +1,6 @@
 package ee.valiit.rainaiback.business.lesson;
 
 import ee.valiit.rainaiback.business.status.Status;
-import ee.valiit.rainaiback.business.status.UserLessonStatus;
 import ee.valiit.rainaiback.domain.contact.user.User;
 import ee.valiit.rainaiback.domain.contact.user.UserService;
 import ee.valiit.rainaiback.domain.contact.user.packagetype.PackageType;
@@ -16,7 +15,6 @@ import ee.valiit.rainaiback.domain.lesson.userlesson.UserLessonService;
 import ee.valiit.rainaiback.domain.technology.Technology;
 import ee.valiit.rainaiback.domain.technology.TechnologyMapper;
 import ee.valiit.rainaiback.domain.technology.TechnologyService;
-import ee.valiit.rainaiback.validation.ValidationService;
 import jakarta.annotation.Resource;
 import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
@@ -111,7 +109,7 @@ public class LessonsService {
 
     }
 
-    public void addNewLesson(AddLessonDto request) {
+    public AddLessonResponse addNewLessonAndReturnId(AddLessonDto request) {
         lessonService.confirmNameAvailability(request.getLessonName());
         PackageType packageType = packageTypeService.findPackageBy(request.getPackageTypeId());
         Lesson lesson = lessonMapper.toLessonEntity(request);
@@ -128,6 +126,7 @@ public class LessonsService {
             lesson.setTechnology(technology);
         }
         lessonService.saveLesson(lesson);
+        return new AddLessonResponse(lesson.getId());
 
     }
 }
