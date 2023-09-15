@@ -63,8 +63,4 @@ public class LessonController {
         lessonsService.addNewUserLesson(request);
     }
 
-    //vaja vist hoopis patchi
-    @PutMapping("/lesson/user")
-    public void updateUserLesson(@RequestParam Integer userId, @RequestBody UserLessonDto request){
-    }
 }
