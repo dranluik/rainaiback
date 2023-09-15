@@ -1,9 +1,13 @@
 package ee.valiit.rainaiback.business.lesson;
 
+import ee.valiit.rainaiback.business.status.Status;
 import ee.valiit.rainaiback.business.status.UserLessonStatus;
 import ee.valiit.rainaiback.domain.contact.user.User;
 import ee.valiit.rainaiback.domain.contact.user.UserService;
+import ee.valiit.rainaiback.domain.contact.user.packagetype.PackageType;
+import ee.valiit.rainaiback.domain.contact.user.packagetype.PackageTypeService;
 import ee.valiit.rainaiback.domain.lesson.Lesson;
+import ee.valiit.rainaiback.domain.lesson.LessonMapper;
 import ee.valiit.rainaiback.domain.lesson.LessonService;
 import ee.valiit.rainaiback.domain.lesson.userlesson.UserLesson;
 import ee.valiit.rainaiback.domain.lesson.userlesson.UserLessonDto;
@@ -19,6 +23,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 @Service
 public class LessonsService {
@@ -38,6 +43,14 @@ public class LessonsService {
 
     @Resource
     private UserService userService;
+
+    @Resource
+    private LessonMapper lessonMapper;
+
+    @Resource
+    private PackageTypeService packageTypeService;
+
+
 
     public List<TechnologyDto> findAllActiveTechnologies(Integer packageTypeId) {
         List<Technology> technologies = technologyService.findTechnologiesBy(packageTypeId);
@@ -95,6 +108,26 @@ public class LessonsService {
     public void deleteUserLesson(Integer userId, Integer lessonId) {
         UserLesson userLesson = userLessonService.findUserLessonBy(userId, lessonId);
         userLessonService.deleteLesson(userLesson);
+
+    }
+
+    public void addNewLesson(AddLessonDto request) {
+        lessonService.confirmNameAvailability(request.getLessonName());
+        PackageType packageType = packageTypeService.findPackageBy(request.getPackageTypeId());
+        Lesson lesson = lessonMapper.toLessonEntity(request);
+        lesson.setPackageType(packageType);
+        lesson.setStatus(Status.DELETED.getLetter());
+
+
+        if (!Objects.equals(request.getTechnologyName(), "")) {
+            technologyService.confirmNameAvailability(request.getTechnologyName());
+            Technology technology = technologyMapper.toTechnologyEntity(request);
+            technology.setPackageType(packageType);
+            technology.setStatus(Status.ACTIVE.getLetter());
+            technologyService.saveTechnology(technology);
+            lesson.setTechnology(technology);
+        }
+        lessonService.saveLesson(lesson);
 
     }
 }
