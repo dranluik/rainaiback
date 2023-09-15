@@ -17,5 +17,5 @@ public class UserLessonDto implements Serializable {
     @NotNull
     private Integer userId;
     @NotNull
-    private String lessonName;
+    private Integer lessonId;
 }

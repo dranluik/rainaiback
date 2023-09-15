@@ -29,7 +29,7 @@ public class LessonController {
     return technologies;
     }
 
-    @GetMapping("/lesson/user")
+    @GetMapping("/lessons/user")
     @Operation(summary = "Teema nimede saamine. Tagastab lessonName ja isSelected")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "OK"),
@@ -52,7 +52,7 @@ public class LessonController {
         return lessonsService.findMyLessons(userId);
     }
 
-    @PostMapping("/lesson/myLessons")
+    @PostMapping("/lesson/user")
     @Operation(summary = "Teema lisamine kasutaja teemade hulka.")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "OK"),
@@ -61,6 +61,11 @@ public class LessonController {
     })
     public void addNewUserLesson(@RequestBody UserLessonDto request){
         lessonsService.addNewUserLesson(request);
+    }
+    @DeleteMapping("/lesson/user")
+    @Operation(summary = "Eemaldab kasutaja teemade hulgast teema", description = "Kustutab täielikult tabelist valitud rea ära")
+    public void deleteUserLesson(@RequestParam Integer userId, @RequestParam Integer lessonId){
+        lessonsService.deleteUserLesson(userId,lessonId);
     }
 
     @PostMapping ("/lesson/mylessons")

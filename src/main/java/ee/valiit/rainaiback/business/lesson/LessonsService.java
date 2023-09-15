@@ -12,6 +12,7 @@ import ee.valiit.rainaiback.domain.lesson.userlesson.UserLessonService;
 import ee.valiit.rainaiback.domain.technology.Technology;
 import ee.valiit.rainaiback.domain.technology.TechnologyMapper;
 import ee.valiit.rainaiback.domain.technology.TechnologyService;
+import ee.valiit.rainaiback.validation.ValidationService;
 import jakarta.annotation.Resource;
 import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
@@ -37,9 +38,6 @@ public class LessonsService {
 
     @Resource
     private UserService userService;
-    @Resource
-    private NewLessonService newLessonService;
-
 
     public List<TechnologyDto> findAllActiveTechnologies(Integer packageTypeId) {
         List<Technology> technologies = technologyService.findTechnologiesBy(packageTypeId);
@@ -82,43 +80,22 @@ public class LessonsService {
     }
 
     @Transactional
-    public UserLesson addNewUserLesson(UserLessonDto request) {
+    public void addNewUserLesson(UserLessonDto request) {
         UserLesson userLesson = createUserLesson(request);
-        saveUserLesson(userLesson);
-        return userLesson;
-
-    }
-
-    private void saveUserLesson(UserLesson userLesson) {
         userLessonService.saveLesson(userLesson);
     }
 
     private UserLesson createUserLesson(UserLessonDto request) {
-        Lesson lesson = lessonService.getLessonBy(request.getLessonName());
-        Integer lessonId = lesson.getId();
+        Lesson lesson = lessonService.getLessonBy(request.getLessonId());
         User user = userService.findUserBy(request.getUserId());
-        controlLessonUserExists(request, lessonId);
-
-        UserLesson userLesson = userLessonMapper.toNewUserLessonEntity(request);
-        userLesson.setUser(user);
-        userLesson.setLesson(lesson);
-        userLesson.setStatus(UserLessonStatus.UNREAD.getLetter());
-        return userLesson;
+        return new UserLesson(user, lesson);
     }
 
-    private void controlLessonUserExists(UserLessonDto request, Integer lessonId) {
-        userLessonService.controlLessonUserExists(lessonId, request.getUserId());
-    }
-    @Transactional
-    public void addNewLesson(AddLessonDto request) {
-        Lesson lesson = createAndSaveLesson(request);
-        addNewLesson(request, lesson);
-    }
-    private void createAndSaveLesson(AddLessonDto request){
-        Lesson lesson = addNewLesson(request);
-        lessonService.saveLesson(lesson);
-        return lesson;
-    }
 
+    public void deleteUserLesson(Integer userId, Integer lessonId) {
+        UserLesson userLesson = userLessonService.findUserLessonBy(userId, lessonId);
+        userLessonService.deleteLesson(userLesson);
+
+    }
 }
 

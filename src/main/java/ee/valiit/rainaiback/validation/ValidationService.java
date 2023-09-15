@@ -54,9 +54,5 @@ public class ValidationService {
         }
     }
 
-    public static void validateUserLessonIsAvailable(boolean lessonUserExists) {
-        if (lessonUserExists){
-            throw new BusinessException(USER_LESSON_UNAVAILABLE.getMessage(), USER_LESSON_UNAVAILABLE.getErrorCode());
-        }
-    }
+
 }
