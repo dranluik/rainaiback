@@ -92,6 +92,10 @@ public class LessonsService {
     }
 
 
+    public void deleteUserLesson(Integer userId, Integer lessonId) {
+        UserLesson userLesson = userLessonService.findUserLessonBy(userId, lessonId);
+        userLessonService.deleteLesson(userLesson);
 
+    }
 }
 

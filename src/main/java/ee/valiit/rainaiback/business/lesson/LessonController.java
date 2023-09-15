@@ -62,5 +62,9 @@ public class LessonController {
     public void addNewUserLesson(@RequestBody UserLessonDto request){
         lessonsService.addNewUserLesson(request);
     }
-
+    @DeleteMapping("/lesson/user")
+    @Operation(summary = "Eemaldab kasutaja teemade hulgast teema", description = "Kustutab täielikult tabelist valitud rea ära")
+    public void deleteUserLesson(@RequestParam Integer userId, @RequestParam Integer lessonId){
+        lessonsService.deleteUserLesson(userId,lessonId);
+    }
 }

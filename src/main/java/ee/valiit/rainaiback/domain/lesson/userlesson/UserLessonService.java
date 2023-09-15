@@ -29,4 +29,11 @@ public class UserLessonService {
         userLessonRepository.save(userLesson);
     }
 
+    public UserLesson findUserLessonBy(Integer userId, Integer lessonId) {
+       return userLessonRepository.findUserLessonBy(userId,lessonId);
+    }
+
+    public void deleteLesson(UserLesson userLesson) {
+        userLessonRepository.delete(userLesson);
+    }
 }
