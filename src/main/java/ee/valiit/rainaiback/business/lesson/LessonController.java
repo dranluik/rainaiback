@@ -68,7 +68,7 @@ public class LessonController {
         lessonsService.deleteUserLesson(userId,lessonId);
     }
 
-    @PostMapping ("/lesson/mylessons")
+    @PostMapping ("/mylessons")
     @Operation(summary = "Uue teema lisamine.")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "OK"),
