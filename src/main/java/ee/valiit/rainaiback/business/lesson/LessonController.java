@@ -63,7 +63,7 @@ public class LessonController {
         lessonsService.addNewUserLesson(request);
     }
     @DeleteMapping("/lesson/user")
-    @Operation(summary = "Eemaldab kasutaja teemade hulgast teema", description = "Kustutab täielikult tabelist valitud rea ära")
+    @Operation(summary = "Teema eemaldamine kasutaja teemade hulgast", description = "Kustutab täielikult tabelist valitud rea ära")
     public void deleteUserLesson(@RequestParam Integer userId, @RequestParam Integer lessonId){
         lessonsService.deleteUserLesson(userId,lessonId);
     }
