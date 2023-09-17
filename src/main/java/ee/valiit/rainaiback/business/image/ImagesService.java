@@ -28,4 +28,8 @@ public class ImagesService {
 
 
     }
+
+    public void deleteImage(Integer imageId) {
+        imageService.deleteImageBy(imageId);
+    }
 }

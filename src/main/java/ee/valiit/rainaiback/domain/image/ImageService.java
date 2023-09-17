@@ -11,4 +11,7 @@ public class ImageService {
         imageRepository.save(imageEntity);
     }
 
+    public void deleteImageBy(Integer imageId) {
+        imageRepository.deleteById(imageId);
+    }
 }
