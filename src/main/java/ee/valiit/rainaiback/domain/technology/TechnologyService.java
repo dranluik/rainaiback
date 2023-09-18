@@ -35,4 +35,8 @@ public class TechnologyService {
     public void saveTechnology(Technology technology) {
         technologyRepository.save(technology);
     }
+
+    public Technology findTechnologyBy(Integer technologyId) {
+        return technologyRepository.getReferenceById(technologyId);
+    }
 }

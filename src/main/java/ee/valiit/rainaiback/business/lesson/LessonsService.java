@@ -112,19 +112,12 @@ public class LessonsService {
     public AddLessonResponse addNewLessonAndReturnId(AddLessonDto request) {
         lessonService.confirmNameAvailability(request.getLessonName());
         PackageType packageType = packageTypeService.findPackageBy(request.getPackageTypeId());
+        Technology technology = technologyService.findTechnologyBy(request.getTechnologyId());
+
         Lesson lesson = lessonMapper.toLessonEntity(request);
         lesson.setPackageType(packageType);
+        lesson.setTechnology(technology);
         lesson.setStatus(Status.DELETED.getLetter());
-
-
-        if (!Objects.equals(request.getTechnologyName(), "")) {
-            technologyService.confirmNameAvailability(request.getTechnologyName());
-            Technology technology = technologyMapper.toTechnologyEntity(request);
-            technology.setPackageType(packageType);
-            technology.setStatus(Status.ACTIVE.getLetter());
-            technologyService.saveTechnology(technology);
-            lesson.setTechnology(technology);
-        }
         lessonService.saveLesson(lesson);
         return new AddLessonResponse(lesson.getId());
 

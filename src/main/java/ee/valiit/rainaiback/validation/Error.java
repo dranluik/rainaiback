@@ -10,7 +10,7 @@ public enum Error {
     NO_TECHNOLOGIES_FOUND("Ei leitud ühtegi tehnoloogiat", 444),
     NO_LESSON_NAMES_FOUND("Ei leitud ühtegi teema nime", 555),
     NO_USER_LESSONS_FOUND("Ei leitud ühtegi kasutaja teemat", 666),
-    TECHNOLOGY_NAME_UNAVAILABLE("See tehnoloogia on juba olemas", 777),
+    TECHNOLOGY_NAME_UNAVAILABLE("Sellise nimega tehnoloogia on juba olemas", 777),
     LESSON_NAME_UNAVAILABLE("See teema on juba olemas", 888);
 
 
