@@ -11,6 +11,7 @@ import java.io.Serializable;
 @NoArgsConstructor
 public class VideoDto implements Serializable {
 
+    private Integer videoId;
     private Integer lessonId;
     private String link;
     private String description;
