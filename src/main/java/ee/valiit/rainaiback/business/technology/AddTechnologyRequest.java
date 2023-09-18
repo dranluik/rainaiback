@@ -1,4 +1,4 @@
-package ee.valiit.rainaiback.business.lesson;
+package ee.valiit.rainaiback.business.technology;
 
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
@@ -9,15 +9,14 @@ import lombok.NoArgsConstructor;
 import java.io.Serializable;
 
 /**
- * DTO for {@link ee.valiit.rainaiback.domain.lesson.Lesson}, {@link ee.valiit.rainaiback.domain.technology.Technology}
+ * DTO for {@link ee.valiit.rainaiback.domain.technology.Technology}
  */
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class AddLessonDto implements Serializable {
+public class AddTechnologyRequest implements Serializable {
     private Integer packageTypeId;
-    private Integer technologyId;
     @NotNull
     @Size(max = 255)
-    private String lessonName;
+    private String technologyName;
 }

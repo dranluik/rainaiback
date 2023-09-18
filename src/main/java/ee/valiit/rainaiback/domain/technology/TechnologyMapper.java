@@ -2,6 +2,7 @@ package ee.valiit.rainaiback.domain.technology;
 
 import ee.valiit.rainaiback.business.lesson.TechnologyDto;
 import ee.valiit.rainaiback.business.lesson.AddLessonDto;
+import ee.valiit.rainaiback.business.technology.AddTechnologyRequest;
 import org.mapstruct.*;
 
 import java.util.List;
@@ -14,7 +15,8 @@ public interface TechnologyMapper {
 
     List<TechnologyDto> toTechnologyDtos(List<Technology> technologies);
 
+
     @Mapping(source = "technologyName", target = "name")
-    Technology toTechnologyEntity(AddLessonDto addLessonDto);
+    Technology toTechnologyEntity2(AddTechnologyRequest addTechnologyRequest);
 
 }
