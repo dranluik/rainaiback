@@ -20,7 +20,7 @@ public class TechnologiesService {
     public void addNewTechnology(AddTechnologyRequest request) {
         PackageType packageType = packageTypeService.findPackageBy(request.getPackageTypeId());
         technologyService.confirmNameAvailability(request.getTechnologyName());
-        Technology technology = technologyMapper.toTechnologyEntity2(request);
+        Technology technology = technologyMapper.toTechnologyEntity(request);
         technology.setPackageType(packageType);
         technology.setStatus(Status.ACTIVE.getLetter());
         technologyService.saveTechnology(technology);

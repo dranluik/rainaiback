@@ -58,8 +58,7 @@ public class ValidationService {
     public static void validateTechnologyNameIsAvailable(boolean technologyNameExists) {
         if (technologyNameExists) {
             throw new BusinessException(
-                    TECHNOLOGY_NAME_UNAVAILABLE.getMessage(), TECHNOLOGY_NAME_UNAVAILABLE.getErrorCode()
-            );
+                    TECHNOLOGY_NAME_UNAVAILABLE.getMessage(), TECHNOLOGY_NAME_UNAVAILABLE.getErrorCode());
         }
 
     }
