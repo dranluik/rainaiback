@@ -10,9 +10,9 @@ public class ImageController {
     private ImagesService imagesService;
 
     @PostMapping("/image")
-    @Operation(summary = "Salvestab andmebaasi uue image objekti, tagastab ImageResponse")
-    public ImageResponse addNewImage(@RequestBody ImageRequest image){
-        return imagesService.addNewImage(image);
+    @Operation(summary = "Salvestab andmebaasi uue image objekti")
+    public void addNewImage(@RequestBody ImageRequest image){
+        imagesService.addNewImage(image);
 
     }
 

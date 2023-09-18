@@ -18,12 +18,12 @@ public class ImagesService {
     private ImageService imageService;
 
 
-    public ImageResponse addNewImage(ImageRequest image) {
+    public void addNewImage(ImageRequest image) {
         Image imageEntity = imageMapper.toImageEntity(image);
         Lesson lesson = lessonService.getLessonBy(image.getLessonId());
         imageEntity.setLesson(lesson);
         imageService.saveImage(imageEntity);
-        return imageMapper.toImageResponse(imageEntity);
+
 
 
 
