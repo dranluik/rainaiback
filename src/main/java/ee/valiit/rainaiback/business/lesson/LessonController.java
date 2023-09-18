@@ -80,4 +80,11 @@ public class LessonController {
         return lessonsService.addNewLessonAndReturnId(request);
     }
 
+    @PutMapping("/mylessons")
+    public void updateLesson(@RequestBody ChangeLessonDto request){
+        lessonsService.updateLesson(request);
+
+
+    }
+
 }

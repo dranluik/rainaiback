@@ -21,7 +21,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
+
 
 @Service
 public class LessonsService {
@@ -121,6 +121,31 @@ public class LessonsService {
         lessonService.saveLesson(lesson);
         return new AddLessonResponse(lesson.getId());
 
+    }
+
+    public void updateLesson(ChangeLessonDto request) {
+        Lesson lesson = lessonService.getLessonBy(request.getLessonId());
+        lessonMapper.partialUpdateLessonNamePackageTechnology(request,lesson);
+        handlePackageTypeUpdate(request, lesson);
+        handleTechnologyUpdate(request, lesson);
+        lessonService.saveLesson(lesson);
+    }
+
+    private void handleTechnologyUpdate(ChangeLessonDto request, Lesson lesson) {
+        Integer technologyId = request.getTechnologyId();
+        if (!technologyId.equals(lesson.getTechnology().getId())){
+            Technology technology = technologyService.findTechnologyBy(technologyId);
+            lesson.setTechnology(technology);
+        }
+    }
+
+    private void handlePackageTypeUpdate(ChangeLessonDto request, Lesson lesson) {
+        Integer packageTypeId = request.getPackageTypeId();
+        if (!packageTypeId.equals(lesson.getPackageType().getId())){
+            PackageType packageType = packageTypeService.findPackageBy(packageTypeId);
+            lesson.setPackageType(packageType);
+
+        }
     }
 }
 
