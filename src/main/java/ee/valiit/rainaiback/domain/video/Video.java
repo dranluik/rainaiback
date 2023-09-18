@@ -1,4 +1,4 @@
-package ee.valiit.rainaiback;
+package ee.valiit.rainaiback.domain.video;
 
 import ee.valiit.rainaiback.domain.lesson.Lesson;
 import jakarta.persistence.*;

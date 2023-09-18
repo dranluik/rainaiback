@@ -13,5 +13,7 @@ public class VideoDto implements Serializable {
 
     private Integer lessonId;
     private String link;
+    private String description;
+
 
 }
