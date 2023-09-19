@@ -1,4 +1,4 @@
-package ee.valiit.rainaiback.business.lesson;
+package ee.valiit.rainaiback.business.lesson.dto;
 
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;

@@ -1,5 +1,6 @@
 package ee.valiit.rainaiback.business.lesson;
 
+import ee.valiit.rainaiback.business.lesson.dto.*;
 import ee.valiit.rainaiback.business.status.Status;
 import ee.valiit.rainaiback.domain.contact.user.User;
 import ee.valiit.rainaiback.domain.contact.user.UserService;
@@ -22,7 +23,6 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
 
-
 @Service
 public class LessonsService {
     @Resource
@@ -36,6 +36,7 @@ public class LessonsService {
 
     @Resource
     private UserLessonMapper userLessonMapper;
+
     @Resource
     private UserLessonService userLessonService;
 
@@ -48,8 +49,6 @@ public class LessonsService {
     @Resource
     private PackageTypeService packageTypeService;
 
-
-
     public List<TechnologyDto> findAllActiveTechnologies(Integer packageTypeId) {
         List<Technology> technologies = technologyService.findTechnologiesBy(packageTypeId);
         return technologyMapper.toTechnologyDtos(technologies);
@@ -59,16 +58,11 @@ public class LessonsService {
         List<Lesson> lessons = lessonService.getLessonsBy(packageTypeId, technologyId);
         List<UserLesson> userLessons = userLessonService.findUserLessonsBy(userId);
         return createAndSaveLessonDtos(lessons, userLessons);
-
     }
 
-
     public List<UserLessonLessonNameDto> findMyLessons(Integer userId) {
-
         List<UserLesson> userLessons = userLessonService.findUserLessonsAndValidateBy(userId);
         return userLessonMapper.toUserLessonLessonNameDtos(userLessons);
-
-
     }
 
     private static List<LessonDto> createAndSaveLessonDtos(List<Lesson> lessons, List<UserLesson> userLessons) {
@@ -102,11 +96,9 @@ public class LessonsService {
         return new UserLesson(user, lesson);
     }
 
-
     public void deleteUserLesson(Integer userId, Integer lessonId) {
         UserLesson userLesson = userLessonService.findUserLessonBy(userId, lessonId);
         userLessonService.deleteLesson(userLesson);
-
     }
 
     public AddLessonResponse addNewLessonAndReturnId(AddLessonDto request) {
@@ -120,7 +112,6 @@ public class LessonsService {
         lesson.setStatus(Status.DELETED.getLetter());
         lessonService.saveLesson(lesson);
         return new AddLessonResponse(lesson.getId());
-
     }
 
     public void updateLesson(ChangeLessonDto request) {
@@ -151,8 +142,12 @@ public class LessonsService {
         if (!packageTypeId.equals(lesson.getPackageType().getId())){
             PackageType packageType = packageTypeService.findPackageBy(packageTypeId);
             lesson.setPackageType(packageType);
-
         }
+    }
+
+    public EditorLessonDto getLessonInfo(Integer lessonId) {
+        Lesson lesson = lessonService.getLessonBy(lessonId);
+        return lessonMapper.toEditorLessonDto(lesson);
     }
 }
 

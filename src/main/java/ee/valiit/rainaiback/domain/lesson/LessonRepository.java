@@ -11,7 +11,4 @@ public interface LessonRepository extends JpaRepository<Lesson, Integer> {
 
     @Query("select (count(l) > 0) from Lesson l where l.name = ?1")
     boolean lessonNameExists(String lessonName);
-
-
-
 }
