@@ -1,4 +1,4 @@
-package ee.valiit.rainaiback.business.lesson;
+package ee.valiit.rainaiback.business.lesson.dto;
 
 import ee.valiit.rainaiback.domain.lesson.userlesson.UserLesson;
 import lombok.AllArgsConstructor;

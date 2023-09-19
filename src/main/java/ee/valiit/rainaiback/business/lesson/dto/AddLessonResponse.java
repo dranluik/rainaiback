@@ -1,4 +1,4 @@
-package ee.valiit.rainaiback.business.lesson;
+package ee.valiit.rainaiback.business.lesson.dto;
 
 
 import lombok.AllArgsConstructor;
@@ -15,5 +15,4 @@ import ee.valiit.rainaiback.domain.lesson.Lesson;
 @NoArgsConstructor
 public class AddLessonResponse implements Serializable {
     private Integer lessonId;
-
 }

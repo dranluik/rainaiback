@@ -1,5 +1,6 @@
 package ee.valiit.rainaiback.business.lesson;
 
+import ee.valiit.rainaiback.business.lesson.dto.*;
 import ee.valiit.rainaiback.domain.lesson.userlesson.UserLessonDto;
 import ee.valiit.rainaiback.infrastructure.error.ApiError;
 import io.swagger.v3.oas.annotations.Operation;
@@ -39,8 +40,8 @@ public class LessonController {
     public List<LessonDto> getLessons(@RequestParam Integer userId, @RequestParam Integer packageTypeId, @RequestParam Integer technologyId){
         List<LessonDto> lessons = lessonsService.getLessons(userId, packageTypeId, technologyId);
         return lessons;
-
     }
+
     @GetMapping("/lesson/myLessons")
     @Operation(summary = "Minu teema nimede saamine. Tagastad lessonName")
     @ApiResponses(value = {
@@ -62,6 +63,7 @@ public class LessonController {
     public void addNewUserLesson(@RequestBody UserLessonDto request){
         lessonsService.addNewUserLesson(request);
     }
+
     @DeleteMapping("/lesson/user")
     @Operation(summary = "Teema eemaldamine kasutaja teemade hulgast", description = "Kustutab täielikult tabelist valitud rea ära")
     public void deleteUserLesson(@RequestParam Integer userId, @RequestParam Integer lessonId){
@@ -83,8 +85,16 @@ public class LessonController {
     @PutMapping("/mylessons")
     public void updateLesson(@RequestBody ChangeLessonDto request){
         lessonsService.updateLesson(request);
+    }
 
-
+    @GetMapping("/editor")
+    @Operation(summary = "Teema nime, pageName ja technology saamine.")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "OK"),
+            @ApiResponse(responseCode = "403", description = "Toimetaja ei leidnud vajalikke andmeid",
+                    content = @Content(schema = @Schema(implementation = ApiError.class)))})
+    public EditorLessonDto getLessonInfo(@RequestParam Integer lessonId) {
+        return lessonsService.getLessonInfo(lessonId);
     }
 
 }

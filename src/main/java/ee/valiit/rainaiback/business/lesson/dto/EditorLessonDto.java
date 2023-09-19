@@ -1,4 +1,4 @@
-package ee.valiit.rainaiback.business.lesson;
+package ee.valiit.rainaiback.business.lesson.dto;
 
 import ee.valiit.rainaiback.domain.lesson.Lesson;
 import jakarta.validation.constraints.NotNull;
@@ -15,11 +15,10 @@ import java.io.Serializable;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class LessonDto implements Serializable {
-
+public class EditorLessonDto implements Serializable {
+    private String packageTypeName;
+    private String technologyName;
+    @NotNull
     @Size(max = 255)
     private String lessonName;
-    @NotNull
-    private Boolean isSelected;
-    private Integer lessonId;
 }
