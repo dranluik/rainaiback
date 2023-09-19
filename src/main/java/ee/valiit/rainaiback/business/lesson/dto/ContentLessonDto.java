@@ -1,11 +1,12 @@
-package ee.valiit.rainaiback.domain.lesson;
+package ee.valiit.rainaiback.business.lesson.dto;
 
+import ee.valiit.rainaiback.domain.lesson.Lesson;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
-import java.nio.charset.StandardCharsets;
+
 
 /**
  * DTO for {@link Lesson}

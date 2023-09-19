@@ -6,7 +6,7 @@ import ee.valiit.rainaiback.domain.contact.user.User;
 import ee.valiit.rainaiback.domain.contact.user.UserService;
 import ee.valiit.rainaiback.domain.contact.user.packagetype.PackageType;
 import ee.valiit.rainaiback.domain.contact.user.packagetype.PackageTypeService;
-import ee.valiit.rainaiback.domain.lesson.ContentLessonDto;
+import ee.valiit.rainaiback.business.lesson.dto.ContentLessonDto;
 import ee.valiit.rainaiback.domain.lesson.Lesson;
 import ee.valiit.rainaiback.domain.lesson.LessonMapper;
 import ee.valiit.rainaiback.domain.lesson.LessonService;
@@ -23,7 +23,6 @@ import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 @Service
@@ -165,5 +164,9 @@ public class LessonsService {
     }
 
 
+    public EditorContentResponse getEditorContent(Integer lessonId) {
+        Lesson lesson = lessonService.getLessonBy(lessonId);
+        return lessonMapper.toEditorContentResponse(lesson);
+    }
 }
 

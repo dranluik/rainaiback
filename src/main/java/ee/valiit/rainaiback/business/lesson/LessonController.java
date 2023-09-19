@@ -1,7 +1,7 @@
 package ee.valiit.rainaiback.business.lesson;
 
 import ee.valiit.rainaiback.business.lesson.dto.*;
-import ee.valiit.rainaiback.domain.lesson.ContentLessonDto;
+import ee.valiit.rainaiback.business.lesson.dto.ContentLessonDto;
 import ee.valiit.rainaiback.domain.lesson.userlesson.UserLessonDto;
 import ee.valiit.rainaiback.infrastructure.error.ApiError;
 import io.swagger.v3.oas.annotations.Operation;
@@ -103,6 +103,12 @@ public class LessonController {
     @Operation(summary = "Contenti lisamine andmebaasi.")
     public void updateContent(@RequestBody ContentLessonDto request){
         lessonsService.updateContent(request);
+    }
+
+    @GetMapping("editor/content")
+    @Operation(summary = "Tagastab lesson contenti editori jaoks.")
+    public EditorContentResponse getEditorContent(@RequestParam Integer lessonId){
+        return lessonsService.getEditorContent(lessonId);
     }
 
 }
