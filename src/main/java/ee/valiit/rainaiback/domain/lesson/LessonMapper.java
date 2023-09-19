@@ -32,5 +32,5 @@ public interface LessonMapper {
 
     @BeanMapping(nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
     @Mapping(source = "lessonName", target = "name")
-    Lesson partialUpdateLessonNamePackageTechnology(ChangeLessonDto changeLessonDto, @MappingTarget Lesson lesson);
+    Lesson partialUpdateLessonName(ChangeLessonDto changeLessonDto, @MappingTarget Lesson lesson);
 }

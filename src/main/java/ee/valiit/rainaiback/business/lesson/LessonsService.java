@@ -125,10 +125,17 @@ public class LessonsService {
 
     public void updateLesson(ChangeLessonDto request) {
         Lesson lesson = lessonService.getLessonBy(request.getLessonId());
-        lessonMapper.partialUpdateLessonNamePackageTechnology(request,lesson);
+        handleLessonNameUpdate(request, lesson);
         handlePackageTypeUpdate(request, lesson);
         handleTechnologyUpdate(request, lesson);
         lessonService.saveLesson(lesson);
+    }
+
+    private void handleLessonNameUpdate(ChangeLessonDto request, Lesson lesson) {
+        String lessonName = request.getLessonName();
+        if (!lessonName.equals(lesson.getName())){
+            lessonMapper.partialUpdateLessonName(request, lesson);
+        }
     }
 
     private void handleTechnologyUpdate(ChangeLessonDto request, Lesson lesson) {

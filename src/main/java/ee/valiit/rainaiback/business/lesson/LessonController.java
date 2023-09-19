@@ -81,6 +81,7 @@ public class LessonController {
     }
 
     @PutMapping("/mylessons")
+    @Operation(summary = "Uuendab vajadusel Lesson entityt lessonname, packagetype ja technology infoga")
     public void updateLesson(@RequestBody ChangeLessonDto request){
         lessonsService.updateLesson(request);
 
