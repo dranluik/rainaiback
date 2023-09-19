@@ -22,5 +22,7 @@ public interface LessonMapper {
     @Mapping(source = "name", target = "lessonName")
     @Mapping(source = "technology.name", target = "technologyName")
     @Mapping(source = "packageType.name", target = "packageTypeName")
+    @Mapping(source = "technology.id", target = "technologyId")
+    @Mapping(source = "packageType.id", target = "packageTypeId")
     EditorLessonDto toEditorLessonDto(Lesson lesson);
 }
