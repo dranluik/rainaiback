@@ -8,6 +8,8 @@ import ee.valiit.rainaiback.domain.lesson.LessonService;
 import jakarta.annotation.Resource;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class ImagesService {
     @Resource
@@ -31,5 +33,11 @@ public class ImagesService {
 
     public void deleteImage(Integer imageId) {
         imageService.deleteImageBy(imageId);
+    }
+
+    public List<ImageResponse> findImages(Integer lessonId) {
+        List<Image> images = imageService.findImagesBy(lessonId);
+        return imageMapper.toImagesResponse(images);
+
     }
 }

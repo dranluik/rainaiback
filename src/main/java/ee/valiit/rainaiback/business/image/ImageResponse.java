@@ -12,9 +12,8 @@ import java.io.Serializable;
 @Value
 public class ImageResponse implements Serializable {
     Integer imageId;
-    Integer lessonId;
     @NotNull
-    byte[] imageData;
+    String imageData;
     @Size(max = 255)
     String imageDescription;
 }

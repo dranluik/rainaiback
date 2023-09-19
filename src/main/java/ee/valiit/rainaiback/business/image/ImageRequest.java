@@ -13,7 +13,7 @@ import java.io.Serializable;
 public class ImageRequest implements Serializable {
     Integer lessonId;
     @NotNull
-    byte[] imageData;
+    String imageData;
     @Size(max = 255)
     String imageDescription;
 }
