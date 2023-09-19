@@ -18,6 +18,8 @@ import java.io.Serializable;
 public class EditorLessonDto implements Serializable {
     private String packageTypeName;
     private String technologyName;
+    private Integer packageTypeId;
+    private Integer technologyId;
     @NotNull
     @Size(max = 255)
     private String lessonName;

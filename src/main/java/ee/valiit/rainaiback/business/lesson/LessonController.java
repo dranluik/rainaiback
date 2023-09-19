@@ -90,7 +90,7 @@ public class LessonController {
     }
 
     @GetMapping("/editor")
-    @Operation(summary = "Teema nime, pageName ja technology saamine.")
+    @Operation(summary = "Teema nime, packageType ja technology Id ja nime saamine.")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "OK"),
             @ApiResponse(responseCode = "403", description = "Toimetaja ei leidnud vajalikke andmeid",
