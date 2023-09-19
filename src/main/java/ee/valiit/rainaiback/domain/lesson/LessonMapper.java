@@ -4,6 +4,7 @@ import ee.valiit.rainaiback.business.lesson.dto.AddLessonDto;
 import ee.valiit.rainaiback.business.lesson.dto.ChangeLessonDto;
 import ee.valiit.rainaiback.business.lesson.dto.EditorLessonDto;
 import ee.valiit.rainaiback.business.lesson.dto.LessonDto;
+import ee.valiit.rainaiback.util.ContentConverter;
 import org.mapstruct.*;
 
 @Mapper(unmappedTargetPolicy = ReportingPolicy.IGNORE, componentModel = MappingConstants.ComponentModel.SPRING)
@@ -23,4 +24,13 @@ public interface LessonMapper {
     @Mapping(source = "technology.name", target = "technologyName")
     @Mapping(source = "packageType.name", target = "packageTypeName")
     EditorLessonDto toEditorLessonDto(Lesson lesson);
+
+//    @Mapping(source = "id", target = "lessonId")
+//    @Mapping(source = "content", target = "content", qualifiedByName = "getContentAsString")
+//    ContentLessonDto toContentLessonDto(Lesson lesson);
+//
+//    @Named("contentAsString")
+//    static String getContentAsString(Lesson lesson) {
+//        return ContentConverter.getContentAsString(lesson);
+//    }
 }

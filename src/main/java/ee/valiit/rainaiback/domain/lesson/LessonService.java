@@ -31,4 +31,8 @@ public class LessonService {
         boolean lessonNameExists = lessonRepository.lessonNameExists(lessonName);
         ValidationService.validateLessonNameIsAvailable(lessonNameExists);
     }
+
+    public void updateContent(byte[] lessonContent, Integer lessonId) {
+        lessonRepository.updateContent(lessonContent, lessonId);
+    }
 }

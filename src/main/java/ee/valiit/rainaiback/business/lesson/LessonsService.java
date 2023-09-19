@@ -6,6 +6,7 @@ import ee.valiit.rainaiback.domain.contact.user.User;
 import ee.valiit.rainaiback.domain.contact.user.UserService;
 import ee.valiit.rainaiback.domain.contact.user.packagetype.PackageType;
 import ee.valiit.rainaiback.domain.contact.user.packagetype.PackageTypeService;
+import ee.valiit.rainaiback.domain.lesson.ContentLessonDto;
 import ee.valiit.rainaiback.domain.lesson.Lesson;
 import ee.valiit.rainaiback.domain.lesson.LessonMapper;
 import ee.valiit.rainaiback.domain.lesson.LessonService;
@@ -16,11 +17,13 @@ import ee.valiit.rainaiback.domain.lesson.userlesson.UserLessonService;
 import ee.valiit.rainaiback.domain.technology.Technology;
 import ee.valiit.rainaiback.domain.technology.TechnologyMapper;
 import ee.valiit.rainaiback.domain.technology.TechnologyService;
+import ee.valiit.rainaiback.util.ContentConverter;
 import jakarta.annotation.Resource;
 import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 @Service
@@ -48,6 +51,7 @@ public class LessonsService {
 
     @Resource
     private PackageTypeService packageTypeService;
+
 
     public List<TechnologyDto> findAllActiveTechnologies(Integer packageTypeId) {
         List<Technology> technologies = technologyService.findTechnologiesBy(packageTypeId);
@@ -149,5 +153,17 @@ public class LessonsService {
         Lesson lesson = lessonService.getLessonBy(lessonId);
         return lessonMapper.toEditorLessonDto(lesson);
     }
+
+    public void updateContent(ContentLessonDto request) {
+        Integer lessonId = request.getLessonId();
+        String content = request.getContent();
+        if (content != null && !content.isEmpty()){
+            byte[] lessonContent = ContentConverter.getBytesArrayFromContent(content);
+            lessonService.updateContent(lessonContent, lessonId);
+        }
+
+    }
+
+
 }
 
