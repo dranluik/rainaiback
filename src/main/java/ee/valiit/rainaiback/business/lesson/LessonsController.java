@@ -41,6 +41,12 @@ public class LessonsController {
         lessonsService.updateLesson(request);
     }
 
+    @DeleteMapping("/myLessons")
+    @Operation(summary = "Paneb lesson entity staatuse deleted")
+    public void deleteLesson(@RequestParam Integer lessonId){
+        lessonsService.deleteLesson(lessonId);
+    }
+
     @GetMapping("/editor")
     @Operation(summary = "Teema nime, packageType ja technology Id ja nime saamine.")
     @ApiResponses(value = {

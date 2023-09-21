@@ -74,6 +74,12 @@ public class LessonsService {
         Lesson lesson = lessonService.getLessonBy(lessonId);
         return lessonMapper.toEditorLessonDto(lesson);
     }
+    public void deleteLesson(Integer lessonId) {
+        Lesson lesson = lessonService.getLessonBy(lessonId);
+        lesson.setStatus(Status.DELETED.getLetter());
+        lessonService.saveLesson(lesson);
+
+    }
 
     private void handleLessonNameUpdate(ChangeLessonDto request, Lesson lesson) {
         String lessonName = request.getLessonName();
@@ -97,5 +103,7 @@ public class LessonsService {
             lesson.setPackageType(packageType);
         }
     }
+
+
 }
 
