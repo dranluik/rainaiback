@@ -1,5 +1,6 @@
-package ee.valiit.rainaiback.business.video;
+package ee.valiit.rainaiback.domain.video;
 
+import ee.valiit.rainaiback.business.video.dto.VideoDto;
 import ee.valiit.rainaiback.domain.video.Video;
 import org.mapstruct.*;
 
@@ -13,4 +14,8 @@ public interface VideoMapper {
     VideoDto toVideoDto(Video video);
 
     List<VideoDto> toVideoDtos(List<Video> video);
+
+    @Mapping(source = "videoLink", target = "link")
+    @Mapping(source = "videoDescription", target = "description")
+    Video toVideoEntity(VideoDto videoDto);
 }

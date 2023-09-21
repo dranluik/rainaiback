@@ -1,4 +1,4 @@
-package ee.valiit.rainaiback.business.video;
+package ee.valiit.rainaiback.business.video.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -13,8 +13,8 @@ public class VideoDto implements Serializable {
 
     private Integer videoId;
     private Integer lessonId;
-    private String link;
-    private String description;
+    private String videoLink;
+    private String videoDescription;
 
 
 }

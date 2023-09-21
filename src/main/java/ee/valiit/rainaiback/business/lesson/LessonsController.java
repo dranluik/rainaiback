@@ -19,57 +19,9 @@ public class LessonsController {
     @Resource
     private LessonsService lessonsService;
 
-    @GetMapping("/lesson/technology")
-    @Operation(summary = "Tehnoloogia saamine. Tagastab packageTypeId, name ja status")
-    @ApiResponses(value = {
-            @ApiResponse(responseCode = "200", description = "OK"),
-            @ApiResponse(responseCode = "403", description = "Ei leitud ühtegi tehnoloogiat",
-             content = @Content(schema = @Schema(implementation = ApiError.class)))
-    })
-    public List<TechnologyDto> findAllActiveTechnologies(@RequestParam Integer packageTypeId) {
-    List<TechnologyDto> technologies = lessonsService.findAllActiveTechnologies(packageTypeId);
-    return technologies;
-    }
 
-    @GetMapping("/lessons/user")
-    @Operation(summary = "Teema nimede saamine. Tagastab lessonName ja isSelected")
-    @ApiResponses(value = {
-            @ApiResponse(responseCode = "200", description = "OK"),
-            @ApiResponse(responseCode = "403", description = "Ei leitud ühtegi teema nime",
-                    content = @Content(schema = @Schema(implementation = ApiError.class)))
-    })
-    public List<LessonDto> getLessons(@RequestParam Integer userId, @RequestParam Integer packageTypeId, @RequestParam Integer technologyId){
-        List<LessonDto> lessons = lessonsService.getLessons(userId, packageTypeId, technologyId);
-        return lessons;
-    }
 
-    @GetMapping("/lesson/myLessons")
-    @Operation(summary = "Minu teema nimede saamine. Tagastad lessonName")
-    @ApiResponses(value = {
-            @ApiResponse(responseCode = "200", description = "OK"),
-            @ApiResponse(responseCode = "403", description = "Kasutaja pole ühtegi teemat oma teemaks veel valinud",
-            content = @Content(schema = @Schema(implementation = ApiError.class)))
-    })
-    public List<UserLessonLessonNameDto> findMyLessons(@RequestParam Integer userId){
-        return lessonsService.findMyLessons(userId);
-    }
 
-    @PostMapping("/lesson/user")
-    @Operation(summary = "Teema lisamine kasutaja teemade hulka.")
-    @ApiResponses(value = {
-            @ApiResponse(responseCode = "200", description = "OK"),
-            @ApiResponse(responseCode = "403", description = "Kasutajal on see teema juba lisatud",
-                    content = @Content(schema = @Schema(implementation = ApiError.class)))
-    })
-    public void addNewUserLesson(@RequestBody UserLessonDto request){
-        lessonsService.addNewUserLesson(request);
-    }
-
-    @DeleteMapping("/lesson/user")
-    @Operation(summary = "Teema eemaldamine kasutaja teemade hulgast", description = "Kustutab täielikult tabelist valitud rea ära")
-    public void deleteUserLesson(@RequestParam Integer userId, @RequestParam Integer lessonId){
-        lessonsService.deleteUserLesson(userId,lessonId);
-    }
 
     @PostMapping ("/mylessons")
     @Operation(summary = "Uue teema lisamine.")

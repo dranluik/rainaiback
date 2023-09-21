@@ -1,4 +1,4 @@
-package ee.valiit.rainaiback.business.lesson.dto;
+package ee.valiit.rainaiback.business.technology.dto;
 
 import ee.valiit.rainaiback.domain.technology.Technology;
 import jakarta.validation.constraints.Size;

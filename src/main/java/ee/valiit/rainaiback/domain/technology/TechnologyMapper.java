@@ -1,7 +1,7 @@
 package ee.valiit.rainaiback.domain.technology;
 
-import ee.valiit.rainaiback.business.lesson.dto.TechnologyDto;
-import ee.valiit.rainaiback.business.technology.AddTechnologyRequest;
+import ee.valiit.rainaiback.business.technology.dto.TechnologyDto;
+import ee.valiit.rainaiback.business.technology.dto.AddTechnologyRequest;
 import org.mapstruct.*;
 
 import java.util.List;
