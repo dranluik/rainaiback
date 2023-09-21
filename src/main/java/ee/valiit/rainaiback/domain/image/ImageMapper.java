@@ -1,7 +1,7 @@
 package ee.valiit.rainaiback.domain.image;
 
-import ee.valiit.rainaiback.business.image.ImageRequest;
-import ee.valiit.rainaiback.business.image.ImageResponse;
+import ee.valiit.rainaiback.business.image.dto.ImageRequest;
+import ee.valiit.rainaiback.business.image.dto.ImageResponse;
 import ee.valiit.rainaiback.util.ContentConverter;
 import org.mapstruct.*;
 

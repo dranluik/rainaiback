@@ -1,5 +1,6 @@
 package ee.valiit.rainaiback.business.signup;
 
+import ee.valiit.rainaiback.business.signup.dto.NewUserDto;
 import ee.valiit.rainaiback.business.status.Status;
 import ee.valiit.rainaiback.domain.contact.Contact;
 import ee.valiit.rainaiback.domain.contact.ContactService;
@@ -23,9 +24,6 @@ public class SignupService {
 
     @Resource
     private PackageTypeService packageTypeService;
-
-    @Resource
-    private PackageTypeMapper packageTypeMapper;
     @Resource
     private RoleService roleService;
     @Resource
@@ -37,11 +35,7 @@ public class SignupService {
     @Resource
     private ContactService contactService;
 
-    public List<PackageTypeDto> getPackages() {
 
-        List<PackageType> packageTypes = packageTypeService.getAllPackageTypes();
-        return packageTypeMapper.toPackageTypeDtos(packageTypes);
-    }
 
     @Transactional
     public void addNewUserAndContact(NewUserDto request) {

@@ -1,4 +1,4 @@
-package ee.valiit.rainaiback.business.signup;
+package ee.valiit.rainaiback.business.packagetype.dto;
 
 import ee.valiit.rainaiback.domain.contact.user.packagetype.PackageType;
 import jakarta.validation.constraints.NotNull;

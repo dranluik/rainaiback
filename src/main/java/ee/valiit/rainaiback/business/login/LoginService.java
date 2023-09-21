@@ -1,5 +1,6 @@
 package ee.valiit.rainaiback.business.login;
 
+import ee.valiit.rainaiback.business.login.dto.LoginResponse;
 import ee.valiit.rainaiback.domain.contact.user.User;
 import ee.valiit.rainaiback.domain.contact.user.UserMapper;
 import ee.valiit.rainaiback.domain.contact.user.UserService;

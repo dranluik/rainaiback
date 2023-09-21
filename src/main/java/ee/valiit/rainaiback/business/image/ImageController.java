@@ -1,5 +1,7 @@
 package ee.valiit.rainaiback.business.image;
 
+import ee.valiit.rainaiback.business.image.dto.ImageRequest;
+import ee.valiit.rainaiback.business.image.dto.ImageResponse;
 import io.swagger.v3.oas.annotations.Operation;
 import jakarta.annotation.Resource;
 import org.springframework.web.bind.annotation.*;

@@ -1,5 +1,7 @@
 package ee.valiit.rainaiback.business.image;
 
+import ee.valiit.rainaiback.business.image.dto.ImageRequest;
+import ee.valiit.rainaiback.business.image.dto.ImageResponse;
 import ee.valiit.rainaiback.domain.image.Image;
 import ee.valiit.rainaiback.domain.image.ImageMapper;
 import ee.valiit.rainaiback.domain.image.ImageService;

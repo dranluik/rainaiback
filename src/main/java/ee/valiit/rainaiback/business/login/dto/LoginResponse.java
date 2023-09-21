@@ -1,4 +1,4 @@
-package ee.valiit.rainaiback.business.login;
+package ee.valiit.rainaiback.business.login.dto;
 
 import ee.valiit.rainaiback.domain.contact.user.User;
 import lombok.AllArgsConstructor;

@@ -1,6 +1,7 @@
 package ee.valiit.rainaiback.business.login;
 
 
+import ee.valiit.rainaiback.business.login.dto.LoginResponse;
 import ee.valiit.rainaiback.infrastructure.error.ApiError;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;

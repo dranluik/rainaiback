@@ -1,4 +1,4 @@
-package ee.valiit.rainaiback.business.signup;
+package ee.valiit.rainaiback.business.signup.dto;
 
 import ee.valiit.rainaiback.domain.contact.user.User;
 import ee.valiit.rainaiback.domain.contact.Contact;

@@ -1,4 +1,4 @@
-package ee.valiit.rainaiback.business.image;
+package ee.valiit.rainaiback.business.image.dto;
 
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
