@@ -11,6 +11,8 @@ public interface VideoMapper {
 
     @Mapping(source = "lesson.id", target = "lessonId")
     @Mapping(source = "id", target = "videoId")
+    @Mapping(source = "link", target = "videoLink")
+    @Mapping(source = "description", target = "videoDescription")
     VideoDto toVideoDto(Video video);
 
     List<VideoDto> toVideoDtos(List<Video> video);
