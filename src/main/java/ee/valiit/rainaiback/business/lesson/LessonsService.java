@@ -41,7 +41,7 @@ public class LessonsService {
         Lesson lesson = lessonMapper.toLessonEntity(request);
         lesson.setPackageType(packageType);
         lesson.setTechnology(technology);
-        lesson.setStatus(Status.DELETED.getLetter());
+        lesson.setStatus(Status.ACTIVE.getLetter());
         lessonService.saveLesson(lesson);
         return new AddLessonResponse(lesson.getId());
     }

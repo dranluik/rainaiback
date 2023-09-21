@@ -23,7 +23,7 @@ public class LessonsController {
 
 
 
-    @PostMapping ("/mylessons")
+    @PostMapping ("/myLessons")
     @Operation(summary = "Uue teema lisamine.")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "OK"),
@@ -35,7 +35,7 @@ public class LessonsController {
         return lessonsService.addNewLessonAndReturnId(request);
     }
 
-    @PutMapping("/mylessons")
+    @PutMapping("/myLessons")
     @Operation(summary = "Uuendab vajadusel Lesson entityt lessonname, packagetype ja technology infoga")
     public void updateLesson(@RequestBody ChangeLessonDto request){
         lessonsService.updateLesson(request);
